@@ -10,33 +10,16 @@ import NoMatch from "./pages/NoMatch";
 import Post from "./pages/Post";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
-// import Nav from "./components/Nav";
+import Head from "./components/Head"
+import Header from "./components/Header"
 
-// import Footer from './components/Footer';
-
-    // class App extends Component {
-    //   render() {
-    //     return (
-          
-    //       <div>
-    //         <Head />
-    //         <Header />
-    //         <div>
-    //           <Post />
-    //           {/* <Post2 />
-    //           <Post3 /> */}
-    //         </div>
-    //         <Footer />
-    //       </div>
-    //     );
-    //   }
-    // }
 
     function App() {
       return (
-        <Router>
           <div>
-            <Footer />
+        <Router>
+        <Head />
+        <Header />
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route exact path="/home" component={HomePage} />
@@ -46,8 +29,9 @@ import Search from "./pages/Search";
                 <Route exact path="/login" component={Login} />
               <Route component={NoMatch} />
             </Switch>
-          </div>
         </Router>
+          <Footer />
+          </div>
       );
     }
     export default App;
