@@ -2,7 +2,7 @@
 import Head from "../components/Head"
 // import Header from "../components/Header"
 import Post from "../components/Post"
-import Footer from "../components/Footer"
+// import Footer from "../components/Footer"
 import React, { Component } from 'react';
 // import "../components/Post/Style.css";
 

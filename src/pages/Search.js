@@ -2,7 +2,7 @@
 
 
 import React, { Component } from "react";
-import Header from "../components/Header"
+// import Header from "../components/Header"
 // import "../components/Post/Style.css";
 
 class Search extends Component {
