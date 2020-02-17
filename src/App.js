@@ -1,8 +1,9 @@
 
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import React from "react"
 import Footer from "./components/Footer"
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
@@ -10,33 +11,17 @@ import NoMatch from "./pages/NoMatch";
 import Post from "./pages/Post";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
-// import Nav from "./components/Nav";
+import Signup from "./pages/Signup";
+import Head from "./components/Head"
+import Header from "./components/Header"
 
-// import Footer from './components/Footer';
-
-    // class App extends Component {
-    //   render() {
-    //     return (
-          
-    //       <div>
-    //         <Head />
-    //         <Header />
-    //         <div>
-    //           <Post />
-    //           {/* <Post2 />
-    //           <Post3 /> */}
-    //         </div>
-    //         <Footer />
-    //       </div>
-    //     );
-    //   }
-    // }
 
     function App() {
       return (
-        <Router>
           <div>
-            <Footer />
+        <Router>
+        <Head />
+        <Header />
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route exact path="/home" component={HomePage} />
@@ -44,10 +29,12 @@ import Search from "./pages/Search";
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/post" component={Post} />
                 <Route exact path="/login" component={Login} />
+                <Route exact path="/signup" component={Signup} />
               <Route component={NoMatch} />
             </Switch>
-          </div>
         </Router>
+          <Footer />
+          </div>
       );
     }
     export default App;

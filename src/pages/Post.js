@@ -1,12 +1,17 @@
 
 
-
 import React, { Component } from "react";
+// import Header from "../components/Header"
+// import "../components/Post/Style.css";
+
 // import "./Post.css";
 
 class Post extends Component {
   render() {
-    return <article className="Post" ref="Post">
+    return(
+    <div>
+      {/* <Header /> */}
+     <article className="Post" ref="Post">
         <header>
           <div className="Post-user">
             <div className="Post-user-avatar">
@@ -26,6 +31,8 @@ class Post extends Component {
           <strong>Javeyn</strong> look at this group of lovely pork and shrimp shumai. #hashtag #blessed #eatshumai #notacook
         </div>
       </article>;
+      </div>
+    )
     }
 }
 export default Post;
