@@ -1,17 +1,18 @@
-
-
-
 import React, { Component } from "react";
+<<<<<<< HEAD
 // import Header from "../components/Header"
 // import "../components/Post/Style.css";
 import image from "./FryingPan.png"
 
 var hidden = true
 var display = "none"
+=======
+>>>>>>> 01fe2cda4ed5e5d6f3a28f24caa08d1ba5964bd1
 
 class Search extends Component {
 
   render() {
+<<<<<<< HEAD
 
 
     function checkDisplay() {   
@@ -76,6 +77,16 @@ class Search extends Component {
           <br />
           <br />
 
+=======
+    return (
+      <div>
+        <br /> <br /> <br />
+        <form>
+          <br /> <br /> <br />
+          <h3>Search</h3>
+          <input type="text" ref="search" placeholder="User, Tag, Food?" />
+          <br /> <br /> <br />
+>>>>>>> 01fe2cda4ed5e5d6f3a28f24caa08d1ba5964bd1
         </form>
       </div>
     )

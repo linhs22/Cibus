@@ -1,16 +1,9 @@
-
-
 import React, { Component } from "react";
-// import Header from "../components/Header"
-// import "../components/Post/Style.css";
-
-// import "./Post.css";
 
 class Post extends Component {
   render() {
     return(
     <div>
-      {/* <Header /> */}
      <article className="Post" ref="Post">
         <header>
           <div className="Post-user">
