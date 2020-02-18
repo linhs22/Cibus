@@ -1,7 +1,6 @@
 /* Place the navbar at the bottom of the page, and make it stick */
 .navbar {
     background-color: #333;
-<<<<<<< HEAD
     overflow: hidden;    
     position: absolute;
     bottom: 0;
@@ -12,30 +11,6 @@
       position: fixed;
     bottom: 0;
     width: 100%;
-=======
-    overflow: hidden;
-    position: fixed;
-    /* top: 0; */
-    width: 100%;
-    z-index: 2;
-    -webkit-transition: height 0.2s ease-in-out;
-    transition: height 0.2s ease-in-out;
-    /* height: 88px; */
-    /* position: sticky; */
-    bottom: 0;
-    /* width: 100%; */
-    /* clear: both; */
-  }
-  .navCont {
-      text-align: center;
-      /* background-color: #333;
-      overflow: hidden;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      clear: both; */
-      /* position: fixed; */
->>>>>>> 01fe2cda4ed5e5d6f3a28f24caa08d1ba5964bd1
   }
   .navButton {
       margin-left:10vh;
