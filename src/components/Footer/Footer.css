@@ -2,12 +2,27 @@
 .navbar {
     background-color: #333;
     overflow: hidden;
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    /* top: 0; */
     width: 100%;
+    z-index: 2;
+    -webkit-transition: height 0.2s ease-in-out;
+    transition: height 0.2s ease-in-out;
+    /* height: 88px; */
+    /* position: sticky; */
+    bottom: 0;
+    /* width: 100%; */
+    /* clear: both; */
   }
   .navCont {
       text-align: center;
+      /* background-color: #333;
+      overflow: hidden;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      clear: both; */
+      /* position: fixed; */
   }
   .navButton {
       margin-left:10vh;

@@ -96,7 +96,7 @@ export default function Login() {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            color="primary-green"
             className={classes.submit}
           >
             Sign In
