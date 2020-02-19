@@ -12,6 +12,7 @@ import Search from "./pages/Search";
 import Signup from "./pages/Signup";
 import Head from "./components/Head"
 import Header from "./components/Header"
+// import BottomNavigation from '@material-ui/core/BottomNavigation';
 
 
 function App() {
@@ -31,9 +32,21 @@ function App() {
           <Route component={NoMatch} />
         </Switch>
       </Router>
+      {/* <BottomNavigation
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+        showLabels
+        className={classes.root}
+      >
+        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+      </BottomNavigation> */}
       <Footer />
     </div>
-    
+
   );
 }
 export default App;

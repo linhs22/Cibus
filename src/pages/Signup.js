@@ -51,6 +51,7 @@ export default function Signup() {
 
   return (
     <Container component="main" maxWidth="xs">
+      <br /><br /><br />
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -100,6 +101,17 @@ export default function Signup() {
                 variant="outlined"
                 required
                 fullWidth
+                id="username"
+                label="Username"
+                name="username"
+                autoComplete="username"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
                 name="password"
                 label="Password"
                 type="password"
@@ -135,6 +147,7 @@ export default function Signup() {
       <Box mt={5}>
         <Copyright />
       </Box>
+      <br />  <br />  <br />
     </Container>
   );
 }
