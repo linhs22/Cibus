@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import Header from "../components/Header"
 // import "../components/Post/Style.css";
 import image from "./FryingPan.png"
+import Postcard from "../components/Postcard"
 
 var hidden = true
 var display = "none"
@@ -57,6 +58,7 @@ class Search extends Component {
             <img style={{ height: "30px", padding: "4px", cursor: "pointer", }} src={image} alt="Frying Pan" />
 
           </div>
+          <Postcard />
 
           {/* <div className= "buttonsDiv" style= {{display: {display}}}>
             <button>

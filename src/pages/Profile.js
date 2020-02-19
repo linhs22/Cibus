@@ -16,19 +16,19 @@ import Link from '@material-ui/core/Link';
 import Header from "../components/Header"
 import "../components/Post/Style.css";
 
-function Copyright() {
-  return (
+// function Copyright() {
+//   return (
     
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+//     <Typography variant="body2" color="textSecondary" align="center">
+//       {'Copyright © '}
+//       <Link color="inherit" href="https://material-ui.com/">
+//         Your Website
+//       </Link>{' '}
+//       {new Date().getFullYear()}
+//       {'.'}
+//     </Typography>
+//   );
+// }
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -88,12 +88,10 @@ export default function Profile() {
             <br/>
             <br/>
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Album layout
+              User Name
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
+              Brief User Description and Profile image
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
