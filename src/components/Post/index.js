@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import "./Style.css";
 
+
+
+
 class Post extends Component {
+ 
+
   render() {
     return <article className="Post" ref="Post">
         <header>
@@ -19,8 +24,8 @@ class Post extends Component {
             <img alt="Icon Living" src="https://theheritagecook.com/wp-content/uploads/2013/10/PBJ-Triangles-w-fruit-iStock.jpg" />
           </div>
         </div>
-        <div className="Post-caption">
-          <strong>Javeyn</strong> Peanut Butter and Jelly Sandwich
+        <div className="Post-description">
+          Peanut Butter and Jelly Sandwich
           <br />
           Ingredients:
           <ul>
@@ -33,13 +38,25 @@ class Post extends Component {
             <li>enjoy!</li>
             </ul>
           </ul>
+
+          {/* {whatever.description} */}
+
+        </div>
+
+          <div>
           <strong>Paolo</strong> I love cheese and fruit.
           <br/>
           <strong>Javeyn</strong> Thats why we call you Mr. Cheese'n'fruit
           <br/>
           <strong>Paolo</strong> Wait what?
-        </div>
+
+           {/* {whatever.comments} */}
+
+          </div>
+         
+
       </article>;
+
     }
 }
 export default Post;

@@ -1,7 +1,40 @@
 import React, { Component } from "react";
+import axios from 'axios';
 
-class Post extends Component {
-  render() {
+  
+
+ class Post extends React.Component {
+
+  state = {    
+    imageUpload: "",
+    test: ""
+  };
+    
+  handleInputChange = event => {
+    // Getting the value and name of the input which triggered the change
+    const { name, value } = event.target;
+
+    // Updating the input's state
+    if (name != "imageUpload"){
+      this.setState({
+        [name]: value
+      });
+    } else {
+      this.setState({
+        imageUpload: event.target.files[0]
+      })
+    }
+  };
+
+
+
+    render() {
+
+      function checkData(){
+        console.log(document.getElementsByClassName("fileSelector"));        
+      }
+
+
     return(
     <div>
      <article className="Post" ref="Post">
@@ -11,7 +44,7 @@ class Post extends Component {
               <img src="https://qph.fs.quoracdn.net/main-qimg-134e3bf89fff27bf56bdbd04e7dbaedf.webp" alt="Chris" />
             </div>
             <div className="Post-user-nickname">
-              <span>Chris</span>
+    <span>Chris</span>
             </div>
           </div>
         </header>
@@ -23,7 +56,21 @@ class Post extends Component {
         <div className="Post-caption">
           <strong>Javeyn</strong> look at this group of lovely pork and shrimp shumai. #hashtag #blessed #eatshumai #notacook
         </div>
-      </article>;
+        <button onClick= {checkData} style={{height: "20px", width: "40px"}}></button>
+        <input className = "fileSelector"        
+          name= "imageUpload"
+          type= "file"     
+          value={this.state.img}
+          onChange={this.handleInputChange}
+        />
+      <input 
+      name= 'test'
+      type= 'text'
+      value={this.state.test}
+      onChange={this.handleInputChange}
+      />
+      </article>;     
+      
       </div>
     )
     }

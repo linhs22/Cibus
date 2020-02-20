@@ -5,14 +5,15 @@ import "./Footer.css";
 class Footer extends React.Component {
     render() {
         return (
-            <div class="navCont">
-                <div class="navbar">
-                    <a href="/"class="navButtonLeft">Home</a>
-                    <a href="Login"class="navButton">Login</a>
-                    <a href="Post"class="navButton">Post</a>
-                    <a href="Search"class="navButton">Search</a>
-                    <a href="Profile"class="navButton">Profile</a>
+            <div className="navCont">
+                <div className="navbar">
+                    <a href="/"className="navButtonLeft">Home</a>
+                    <a href="Login"className="navButton">Login</a>
+                    <a href="Post"className="navButton" id="upload_widget">Post</a>
+                    <a href="Search"className="navButton">Search</a>
+                    <a href="Profile"className="navButton">Profile</a>
                 </div>
+               
             </div>
         );
     }
