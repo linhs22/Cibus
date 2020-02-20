@@ -1,24 +1,31 @@
 import React from "react";
+import home from "./home.png"
+import post from "./post.png"
+import profile from "./profile.png"
+import search from "./search.png"
 
 import "./Footer.css";
 
 class Footer extends React.Component {
     render() {
         return (
+
+
             <div class="navCont">
                 <div class="navbar">
-                    <a href="/"class="navButtonLeft">Home</a>
-                    <a href="Login"class="navButton">Login</a>
-                    <a href="Post"class="navButton">Post</a>
-                    <a href="Search"class="navButton">Search</a>
-                    <a href="Profile"class="navButton">Profile</a>
+                    <a href="/" class="navButton">
+                        <img src={home} />
+                    </a>
+                    <a href="Profile" class="navButton">
+                        <img src={profile} />
+                    </a>
+                    <a href="Post" class="navButton">
+                        <img src={post} />
+                    </a>
+                    <a href="Search" class="navButton">
+                        <img src={search} />
+                    </a>
                 </div>
-                {/* <BottomNavigation>
-                    <BottomNavigationAction label="Recents" value="recents" icon={<RestoreIcon />} />
-                    <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />
-                    <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} />
-                    <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
-                </BottomNavigation> */}
             </div>
         );
     }
