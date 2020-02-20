@@ -4,7 +4,6 @@ import "./Style.css";
 
 
 
-
 class PostCard extends Component {
   render() {
     return <article className="Post" ref="Post">
@@ -40,4 +39,3 @@ class PostCard extends Component {
     }
 }
 export default PostCard;
-

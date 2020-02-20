@@ -5,15 +5,19 @@ import React, { Component } from 'react';
 
  class HomePage extends Component {
   render() {
-    return (
-      
+    return (      
       <div>
+
         <Head />
         <div>
           {/* <Post /> */}
           <Postcard />
         </div>
+
       </div>
+
+     
+
     );
   }
 }

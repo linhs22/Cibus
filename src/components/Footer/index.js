@@ -10,7 +10,6 @@ class Footer extends React.Component {
     render() {
         return (
 
-
             <div class="navCont">
                 <div class="navbar">
                     <a href="/" class="navButton">
