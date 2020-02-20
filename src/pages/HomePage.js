@@ -7,13 +7,7 @@ import React, { Component } from 'react';
   render() {
     return (      
       <div>
-
-        <Head />
-        <div>
-          {/* <Post /> */}
-          <Postcard />
-        </div>
-
+        <Postcard />
       </div>
 
      
