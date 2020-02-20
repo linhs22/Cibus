@@ -4,6 +4,7 @@
     overflow: hidden;    
     position: absolute;
     bottom: 0;
+    min-width:800px;
     /* width: 100%; */
   }
   .navCont {
@@ -14,11 +15,13 @@
   }
   .navButton {
       margin-left:10vh;
-      margin-right:10vh
+      margin-right:10vh;
+      min-width:10px;
   }
   .navButtonLeft {
     margin-left:10vh;
-    margin-right:10vh
+    margin-right:10vh;
+    min-width:10px;
 }
   
   /* Style the links inside the navigation bar */

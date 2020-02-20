@@ -72,7 +72,10 @@ import axios from 'axios';
       </article>;     
       
       </div>
-    )
-    }
+    );
+  }
 }
-export default Post;
+
+export default Post
+
+
