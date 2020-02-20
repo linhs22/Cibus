@@ -7,15 +7,7 @@ import React, { Component } from 'react';
   render() {
     return (      
       <div>
-<<<<<<< HEAD
-        <Post />
-=======
-        <Head />
-        <div>
-          {/* <Post /> */}
-          <Postcard />
-        </div>
->>>>>>> 0e9061b727eb838369aa5c4166e039deb9bcee43
+        <Postcard />
       </div>
 
      
