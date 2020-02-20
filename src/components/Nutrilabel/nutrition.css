@@ -1,0 +1,226 @@
+.card {
+  padding-top: 5px;
+   border: 2px solid black;
+   width: 400px;
+   margin-left:2%;
+   margin-right:2%
+}
+
+.card-content {
+  text-align: left;
+  padding-top: 5px;
+  margin: 0
+}
+
+.row {
+  margin: 0; 
+  padding: 0;
+}
+
+#specCol {
+  padding: "0";
+   margin: "0"
+}
+
+.specH4 {
+  margin: 0;
+   font-weight: bold
+}
+
+#servingCol {
+  font-size: large;
+   padding: 0;
+    margin: 0;
+}
+
+#servColTwo {
+ font-size: large;
+  padding: 0;
+   margin: 0;
+    text-align: right;
+}
+
+#thick {
+ padding: 0;
+  margin: 0;
+   height: 8px; 
+   color: black; 
+   background-color: black;
+    border: none
+}
+
+#amountCol {
+font-size: large; 
+padding: 0; 
+margin: 0;
+}
+
+#cal {
+  font-size: large; 
+  padding: 0; 
+  margin: 0; 
+  font-size: x-large; 
+  font-weight: bold;
+}
+
+#calories {
+font-size: large; 
+padding: 0; 
+margin: 0; 
+font-size: x-large; 
+font-weight: bold; 
+text-align: right;
+}
+
+#under {
+  padding: 0; 
+  margin: 0; 
+  height: 4px; 
+  color: black; 
+  background-color: black; 
+  border: none;
+}
+
+#dailyValue {
+ font-size: large; 
+ padding: 0; 
+ margin: 0; 
+ text-align: right; 
+ font-weight: bold;
+}
+
+#fat {
+text-align: left; 
+font-size: large; 
+padding: 0; 
+margin: 0;
+}
+
+#fatPercent {
+ font-size: large; 
+ padding: 0; 
+ margin: 0;
+  text-align: right
+}
+
+#satFat {
+  font-size: large; 
+  padding: 0; 
+  margin: 0; 
+  text-indent: 15px;
+}
+
+#satFatPercent {
+font-size: large; 
+padding: 0; 
+margin: 0;
+text-align: right
+}
+
+#transHr {
+  padding: 0;
+   margin: 0;
+}
+
+#transfat {
+  font-size: large; 
+  padding: 0; 
+  margin: 0; 
+  text-indent: 15px;
+}
+
+#cholesterol {
+  font-size: large; 
+  padding: 0; 
+  margin: 0;
+}
+
+#cholesterolpercent {
+font-size: large; 
+padding: 0; 
+margin: 0;
+text-align: right
+}
+
+#sodium {
+ font-size: large; 
+ padding: 0; 
+ margin: 0;
+}
+
+#sodiumpercent {
+font-size: large; 
+padding: 0; 
+margin: 0;
+text-align: right
+}
+
+#carbs {
+  font-size: large; 
+  padding: 0; 
+  margin: 0; 
+}
+
+#carbspercent {
+ font-size: large; 
+ padding: 0; margin: 0;
+ text-align: right
+}
+
+#fiber {
+  font-size: large; 
+  padding: 0; margin: 0; 
+  text-indent: 15px;
+}
+
+#fiberpercent {
+  font-size: large; 
+  padding: 0; 
+  margin: 0;
+  text-align: right
+}
+
+#sugar {
+ font-size: large; 
+ padding: 0; 
+ margin: 0; 
+ text-indent: 15px;
+}
+
+#protien {
+ font-size: large; 
+ padding: 0; 
+ margin: 0;
+}
+
+#vita {
+  font-size: large; 
+  padding: 0; 
+  margin: 0;
+  text-align: right
+}
+
+#calcium {
+  font-size: large; 
+  padding: 0; 
+  margin: 0;
+  text-align: right
+}
+
+#iron {
+  font-size: large; 
+  padding: 0; 
+  margin: 0;
+  text-align: right
+}
+
+#potassium {
+  font-size: large; 
+  padding: 0; 
+  margin: 0;
+  text-align: right
+}
+
+#advice {
+ font-size: small;
+}
