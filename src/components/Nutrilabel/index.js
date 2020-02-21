@@ -1,6 +1,6 @@
 import React from "react";
 import "./nutrition.css";
-
+// style={{position:"absolute", right: 0, marginRight: "16.2%"}}
 
 class Nutrilabel extends React.Component {
   render() {
@@ -158,7 +158,7 @@ class Nutrilabel extends React.Component {
 
 
         </div>
-        <br/> <br/> <br/>
+        {/* <br/> <br/> <br/> */}
       </div>
     );
   }
