@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import "./Style.css";
+
 
 
 
@@ -12,7 +12,6 @@ class PostCard extends Component {
           <div className="Post-user">
             <div className="Post-user-avatar">
               <img src="https://qph.fs.quoracdn.net/main-qimg-134e3bf89fff27bf56bdbd04e7dbaedf.webp" alt="Chris" />
-              {/* {whatever.userimage} */}
             </div>
             <div className="Post-user-nickname">
               {/* <span>{whatever.username}</span> */}
