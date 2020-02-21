@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import "./Style.css";
+
 
 const styles = {
   imageStyle: {

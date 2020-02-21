@@ -3,7 +3,6 @@ import home from "./home.png"
 import post from "./post.png"
 import profile from "./profile.png"
 import search from "./search.png"
-
 import "./Footer.css";
 
 class Footer extends React.Component {

@@ -12,6 +12,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import taco from "./taco.png"
 // import Signup from "./pages/Signup";
 
 function Copyright() {
@@ -59,9 +60,10 @@ export default function Login() {
     <br />
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+      <img src={taco} />
+        {/* <Avatar className={classes.avatar}> */}
           {/* <LockOutlinedIcon /> */}
-        </Avatar>
+        {/* </Avatar> */}
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
