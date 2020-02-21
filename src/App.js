@@ -1,5 +1,5 @@
 
-import './App.css';
+import './index.css';
 import React from "react"
 import Footer from "./components/Footer"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -17,7 +17,7 @@ import Header from "./components/Header"
 
 function App() {
   return (
-    <div>
+    <div id="body">
       <Router>
         <Head />
         <Header />

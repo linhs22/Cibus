@@ -12,6 +12,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import taco from "./taco.png"
 
 function Copyright() {
   return (
@@ -54,9 +55,11 @@ export default function Signup() {
       <br /><br /><br />
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+
+        {/* <Avatar className={classes.avatar}> */}
           {/* <LockOutlinedIcon /> */}
-        </Avatar>
+        {/* </Avatar> */}
+        <img src={taco} />
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
