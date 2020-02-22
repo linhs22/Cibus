@@ -6,13 +6,14 @@ import Newcard2 from "../components/Newcard2"
 import React, { Component } from 'react';
 // import "../index.css"
 
+
  class HomePage extends Component {
+  
   render() {
-    return (      
-      <div id="body">
-        {/* <Postcard /> */}
-        <br/> <br/>
-        <Newcard2 /><Newcard /><Newcard /><Newcard /><Newcard /><Newcard />
+    return (
+      <div>
+        {this.props.posts.results.length > 0? this.props.posts.results.map(post => <Postcard posts={post}/>) : ""};
+        {/* <Postcard posts={this.props.posts.results[0]}/> */}
       </div>
 
      

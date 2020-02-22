@@ -1,30 +1,35 @@
 import React, { Component } from "react";
 
 
+const styles = {
+  imageStyle: {
+    width: "200px",
+    height: "200px"
+  }
+};
 
-
-
-class Postcard extends Component {
+class PostCard extends Component {
   render() {
     return <article className="Post" ref="Post">
         <header>
           <div className="Post-user">
             <div className="Post-user-avatar">
-              <img src="https://qph.fs.quoracdn.net/main-qimg-134e3bf89fff27bf56bdbd04e7dbaedf.webp" alt="Chris"/>
+              <img src={this.props.posts? this.props.posts.User.profilePic : ""} alt="Chris" />
+              {/* "https://qph.fs.quoracdn.net/main-qimg-134e3bf89fff27bf56bdbd04e7dbaedf.webp" */}
             </div>
             <div className="Post-user-nickname">
-              {/* <span>{whatever.username}</span> */}
+              <span>{this.props.posts? this.props.posts.User.username : ""}</span>
             </div>
           </div>
         </header>
         <div className="Post-image">
           <div className="Post-image-bg">
-            {/* <img alt="Icon Living" src={whatever.imgUrl} /> */}
+            {<img style={styles.imageStyle} alt="Icon Living" src={this.props.posts? this.props.posts.image : ""} />}
           </div>
         </div>
         <div className="Post-description">
          
-          {/* {whatever.description} */}
+          {this.props.posts? this.props.posts.description : ""}
 
         </div>
 
@@ -33,9 +38,7 @@ class Postcard extends Component {
            {/* {whatever.comments} */}
 
           </div>
-      </article>;
-
-      
+      </article>;  
     }
 }
 export default Postcard;
