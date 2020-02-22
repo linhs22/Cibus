@@ -8,13 +8,11 @@ import Login from "./pages/Login";
 import NoMatch from "./pages/NoMatch";
 import Post from "./pages/Post";
 import Profile from "./pages/Profile";
-// import Search from "./pages/Search";
-import Search2 from "./pages/Search2";
+import Search from "./pages/Search";
 import Signup from "./pages/Signup";
 import Head from "./components/Head"
 import Header from "./components/Header"
 import API from "./utils/API";
-// import BottomNavigation from '@material-ui/core/BottomNavigation';
 
 
 function App() {
@@ -41,7 +39,7 @@ function App() {
             <HomePage posts={posts}></HomePage>
           </Route>
           <Route exact path="/home" component={HomePage} />
-          <Route exact path="/search" component={Search2} />
+          <Route exact path="/search" component={Search} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/post" component={Post} />
           <Route exact path="/login" component={Login} />
@@ -49,18 +47,6 @@ function App() {
           <Route component={NoMatch} />
         </Switch>
       </Router>
-      {/* <BottomNavigation
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-        showLabels
-        className={classes.root}
-      >
-        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
-      </BottomNavigation> */}
       <Footer />
     </div>
 

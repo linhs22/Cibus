@@ -14,7 +14,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Header from "../components/Header"
+import Newcard from "../components/Newcard"
 import "../components/Post/Style.css";
+import profpic from "./morgan.jpg"
 
 // function Copyright() {
 //   return (
@@ -88,11 +90,12 @@ export default function Profile() {
               <br />
               <br />
               <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                User Name
+                Morgan FRICKIN' Freeman
                 {/* {whatever.username} */}
             </Typography>
-              <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                Brief User Description and Profile image
+              <Typography align="center" color="textSecondary">
+                <img src={profpic} style={{width:"150px", height:"auto", align:"center"}} />
+                <p>Brief User Description</p>
                 {/* {whatever.profilepic} */}
             </Typography>
               <div className={classes.heroButtons}>
@@ -118,7 +121,7 @@ export default function Profile() {
                 <Grid item key={card} xs={12} sm={6} md={4}>
                  
 {/* this is where the profile cards go */}
-
+<Newcard />
                 </Grid>
               ))}
             </Grid>
