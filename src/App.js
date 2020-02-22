@@ -8,7 +8,8 @@ import Login from "./pages/Login";
 import NoMatch from "./pages/NoMatch";
 import Post from "./pages/Post";
 import Profile from "./pages/Profile";
-import Search from "./pages/Search";
+// import Search from "./pages/Search";
+import Search2 from "./pages/Search2";
 import Signup from "./pages/Signup";
 import Head from "./components/Head"
 import Header from "./components/Header"
@@ -40,7 +41,7 @@ function App() {
             <HomePage posts={posts}></HomePage>
           </Route>
           <Route exact path="/home" component={HomePage} />
-          <Route exact path="/search" component={Search} />
+          <Route exact path="/search" component={Search2} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/post" component={Post} />
           <Route exact path="/login" component={Login} />
