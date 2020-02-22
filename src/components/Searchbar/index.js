@@ -5,7 +5,7 @@ import React from 'react'
 class Searchbar extends React.Component {
     render() {
         return (
-            <div>
+            <div style={{textAlign:"center"}}>
               {/* <Header /> */}
               <br />
               <br />
@@ -17,36 +17,23 @@ class Searchbar extends React.Component {
                 <div className="searchBar" style={{          
                   margin: "auto",
                   width: "50%",
+                  display:"inline-block"
                 }}>
       
            
-                  <h3 style={{ marginLeft: "20%" }}>Search</h3>
+                  <h3>Search</h3>
       
-                  <input style={{ marginLeft: "20%" }}
+                  <input
                     type="text"
                     ref="search"
                     placeholder="User, Tag, Food?"
                     // onClick={addButtons}
                   // value=""
                   />
+                  <img style={{ height: "30px", padding: "4px", cursor: "pointer", float:"right" }} src={image} alt="Frying Pan" />
       
-                  <img style={{ height: "30px", padding: "4px", cursor: "pointer", }} src={image} alt="Frying Pan" />
       
                 </div>
-                {/* <Postcard /> */}
-                {/* <Smallcard /> */}
-      
-                {/* <div className= "buttonsDiv" style= {{display: {display}}}>
-                  <button>
-                    Button 1
-                  </button>
-                  <button>
-                    Button 1
-                  </button>
-                  <button>
-                    Button 1
-                  </button>
-                </div> */}
                 <br />
                 <br />
                 <br />
