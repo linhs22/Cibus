@@ -41,5 +41,5 @@ class PostCard extends Component {
       </article>;  
     }
 }
-export default PostCard;
+export default Postcard;
 
