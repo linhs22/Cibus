@@ -3,15 +3,15 @@ import React, { Component } from "react";
 
 const styles = {
   imageStyle: {
-    width: "200px",
-    height: "200px"
+    width: "300px",
+    height: "300px"
   }
 };
 
 class PostCard extends Component {
   render() {
-    return <article className="Post" ref="Post">
-        <header>
+    return <article className="Post" ref="Post" key={this.props.id} id={this.props.id}>
+        <header >
           <div className="Post-user">
             <div className="Post-user-avatar">
               <img src={this.props.posts? this.props.posts.User.profilePic : ""} alt="Chris" />
