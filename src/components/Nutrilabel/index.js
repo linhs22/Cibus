@@ -50,7 +50,7 @@ class Nutrilabel extends React.Component {
               0%
                   </div>
           </div>
-          <hr id="transHr" />
+          {/* <hr id="transHr" /> */}
           <div className="row">
             <div className="col s10" id="satFat">
               Saturated Fat 0g
