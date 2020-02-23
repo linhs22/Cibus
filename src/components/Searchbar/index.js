@@ -1,6 +1,11 @@
 
 import image from "./FryingPan.png"
 import React from 'react'
+import Searchmenu from "../Searchmenu"
+// import Menu from '@material-ui/core/Menu';
+// import MenuItem from '@material-ui/core/MenuItem';
+
+
 
 class Searchbar extends React.Component {
     render() {
@@ -30,6 +35,8 @@ class Searchbar extends React.Component {
                     // onClick={addButtons}
                   // value=""
                   />
+                  <Searchmenu />
+                  
                   <img style={{ height: "30px", padding: "4px", cursor: "pointer", float:"right" }} src={image} alt="Frying Pan" />
       
       
