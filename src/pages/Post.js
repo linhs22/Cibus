@@ -1,142 +1,200 @@
 import React, { Component } from "react";
 import Nutrilabel from "../components/Nutrilabel/index"
 import { List, ListItem } from "../components/List";
+import API from "../utils/API";
+import Fade from "react-reveal/Fade";
+import TransitionGroup from 'react-transition-group/TransitionGroup';
 
-// import axios from 'axios';
-
+const myStyle = {
+  body: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center"
+  },
+  container: {
+    display: "flex",
+    justifyContent: "center"
+  },
+  image: {
+    width: "300px",
+    height: "300px",
+  }
+};
 
  class Post extends React.Component {
-
   state = {    
-    // insert data from api here 
-    ingredients: [1,2,3,4],
-    description: "",
-    imageUpload: "",
-    test: "asfd"
-  };
-    
-  handleInputChange = event => {
-    // Getting the value and name of the input which triggered the change
-    const { name, value } = event.target;
-
-    // Updating the input's state
-    if (name != "imageUpload"){
-      this.setState({
-        [name]: value
-      });
-    } else {
-      this.setState({
-        imageUpload: "./"+event.target.files[0]
-      })
+    newIngredient: "",
+    selectedFile: null,
+    loadFile: null,
+    concepts: null,
+    imageUrl: null,
+    show: false,
+    groupProps: {
+      appear: true,
+      enter: true,
+      exit: true,
     }
   };
 
-  
+  ///////////////////// PAOLO /////////////////////
+  // Submit image
+  onChangeHandler = async (event) => {
+    event.preventDefault();
+    await this.setState({
+        selectedFile: event.target.files[0],
+        loadFile: URL.createObjectURL(event.target.files[0])
+    });
+    const data = new FormData();
+    data.append('image', this.state.selectedFile);
+    API.uploadPost(data)
+    .then(res => {
+      console.log(res.data);
+      this.setState({
+        concepts: res.data.concepts,
+        imageUrl: res.data.imageUrl,
+        show: false
+      });
+    })
+    .catch(err => console.log(err));
+  };
 
-  // renderIngredients(){
-  //   this.state.ingredients.length ? (
-  //     <List>
-  //       {this.state.ingredients.map(ingredient => (
-  //         <ListItem key={ingredient._id}>
-  //           <a href={"/ingredients/" + ingredient._id}>
-  //             <strong>
-  //               {ingredient} by {ingredient}
-  //             </strong>
-  //           </a>
-  //         </ListItem>
-  //       ))}
-  //     </List>
-  //   ) : (
-  //     <h3>No Results to Display</h3>
-  //   )
-  // }
+  // Ingredient List
+  addIngredient = (event) => {
+    event.preventDefault();
+    console.log(event);
+    this.setState({
+      concepts: [...this.state.concepts, {name: this.state.newIngredient}]
+    });
+  };
 
-
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    })
+  }
+  ///////////////////// PAOLO /////////////////////
     render() {
 
-      function checkData(event){
-        // console.log(document.getElementsByClassName("fileSelector")[0].value);        
-        console.log(event.target.files[0]);
-        console.log(event.target.value);
+      return(
+        <div>
+          <article className="Post" ref="Post" style={myStyle.body}>
+              {/* <header style={{display: "flex", flexDirection:"row"}}>
+                <div className="Post-user">
+                  <div className="Post-user-avatar">
+                    <img src={this.props.user? this.props.user.profilePic : ""} alt={this.props.user? this.props.user.firstName : ""} />
+                  </div>
+                  <div className="Post-user-nickname">
+                    <span>{this.props.user? this.props.user.username : ""}</span>
+                  </div>
+                </div>
+              </header> */}
+                
+              <div className="Post-image"  style={myStyle.container}>
+                  <div>
+                    <form method="POST" action="#" enctype="multipart/form-data">
+                      <div style={myStyle.container}>
+                        {this.state.selectedFile? 
+                          <div>
+                            <img src={this.state.loadFile} alt="Chosen Image" style={myStyle.image}></img>
+                          </div> :
+                          <div className="form-group files color">
+                            <label>Upload Your Image</label>
+                            <input type="file" className="form-control" name="file" onChange={this.onChangeHandler}></input>
+                          </div>
+                        }
+                      </div>
+                      
+                      <TransitionGroup {...this.state.groupProps}>
+                        {this.state.concepts?
+                          this.state.concepts.map( item => (
+                          <Fade key={this.state.concepts.indexOf(item)} bottom>
+                            <div className="card">
+                              <div className="card-body justify-content-between">
+                                {item.name}
+                              </div>
+                            </div>
+                          </Fade>)) :
+                          "" }
+                      </TransitionGroup>
+                      <div className="col-10">
+                        <div className="input-group mt-4 mb-1">
+                          <input
+                            type="text"
+                            className="form-control"
+                            id='todoField'
+                            placeholder='Food item'
+                            name='newIngredient'
+                            value={this.state.newIngredient}
+                            onChange={this.handleChange}
+                          />
+                          <div className="input-group-append">
+                            <button
+                              onClick={this.addIngredient}
+                              className="btn btn-outline-success"
+                              type="button"
+                            >
+                              Add Item
+                            </button>
+                          </div>
+                        </div>
+                        <small id="emailHelp" className="form-text text-muted">
+                          Item Count: {this.state.concepts? this.state.concepts.length : "0"}
+                        </small>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+              {/* <Fade top cascade collapse when={this.state.show}>
+                <div style={myStyle.container}>
+                  { this.state.concepts? (
+                    <List style={{display: "flex", flexDirection:"column", flexGrow:"1"}}>
+                      {this.state.concepts.map(concepts => (
+                        <ListItem key={concepts.name}>
+                          <a href={"/ingredients/" + ingredient._id}>
+                            <strong>
+                              {ingredient} by {ingredient}
+                            </strong>
+                          </a>
+                        </ListItem>
+                      ))}
+                    </List>
+                    ) : (
+                      
+                      <h3>No Results to Display</h3>
+                    )
+                  }
+                </div>
+              </Fade> */}
+              {/* <div style={myStyle.container}>
+                <Fade>
+                  <div>
+                    <h2>React Reveal</h2>
+                    <h2>React Reveal</h2>
+                    <h2>React Reveal</h2>
+                  </div>
+                </Fade>
+              </div> */}
+              
 
-        
-      }    return(
-    <div>
-      
-     <article className="Post" ref="Post">
-        <header style={{display: "flex", flexDirection:"row"}}>
-          <div className="Post-user">
-            <div className="Post-user-avatar">
-              <img src="https://qph.fs.quoracdn.net/main-qimg-134e3bf89fff27bf56bdbd04e7dbaedf.webp" alt="Chris" />
-            </div>
-            <div className="Post-user-nickname">
-    <span>Chris</span>
-            </div>
+                
+              {/* </div> */}
+              
+              {/* <div className="Post-caption">
+                <input className="description-field"
+                name= "description"
+                type= "text"
+                value={this.state.description}
+                onChange={this.handleInputChange}
+                >
+                </input>
+              </div> */}
+              <div style={myStyle.container}>
+                <Nutrilabel/>
+              </div>
+              
+            </article>  
           </div>
-        </header>
-        
-        {/* <div className= "form-fields" style={{position:"absolute", left: 0}}> */}
-          
-        <div className="Post-image"  style={{display: "flex", flexDirection:"row"}}>
-          <div className="Post-image-bg" style={{width: "50%", height: "50%", display: "flex", flexDirection:"column", flexGrow:"3"}}>
-            <img alt="Icon Living" src=
-            // {this.state.imageUpload}
-            "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/12/20/1/FNM_010113-TTAH-Steamed-Pork-and-Mushroom-Shumai-Recipe_s4x3.jpg.rend.hgtvcom.826.620.suffix/1371612375300.jpeg"
-            />
-            {/* <input style={{position:"absolute", right: 0}}
-              name= 'test'
-              type= 'text'
-              value={this.state.test}
-              onChange={this.handleInputChange}
-            />            */}
-            </div>
-
-            <div style={{display: "flex", flexDirection:"column", flexGrow:"1"}}>
-            <input className = "fileSelector"        
-              name= "imageUpload"
-              type= "file"     
-              value={this.state.img}
-              onChange={this.handleInputChange}
-              onInput={checkData}
-            />
-            <button onClick= {checkData} style={{height: "20px", width: "40px"}}></button>
-            </div>
-
-          {    this.state.ingredients.length ? (
-        <List style={{display: "flex", flexDirection:"column", flexGrow:"1"}}>
-          {this.state.ingredients.map(ingredient => (
-            <ListItem key={ingredient._id}>
-              {/* <a href={"/ingredients/" + ingredient._id}>
-                <strong>
-                  {ingredient} by {ingredient}
-                </strong>
-              </a> */}
-            </ListItem>
-          ))}
-        </List>
-      ) : (
-        <h3>No Results to Display</h3>
-      )
-      }
-        </div>
-        {/* </div> */}
-        
-        <div className="Post-caption">
-          <input className="description-field"
-          name= "description"
-          type= "text"
-          value={this.state.description}
-          onChange={this.handleInputChange}
-          >
-          </input>
-        </div>
-
-    <Nutrilabel/>
-      
-      </article>;    
-      
-      
-      </div>
     );
   }
 }

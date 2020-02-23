@@ -6,14 +6,14 @@ const API = {
     getPosts: (userid, numberPosts)=>{
         return axios.get(`${URL}/api/posts/${userid}/${numberPosts}`);
     },
-    getPostsHomepage: (userid)=>{
-        return axios.get(`${URL}/api/posts/followers/${userid}`);
+    getPostsHomepage: (userid, offset)=>{
+        return axios.get(`${URL}/api/followers/${userid}/${offset}`);
     },
     getUsers: (username, numberUsers)=>{
         return axios.get(`${URL}/api/usrs/${username}/${numberUsers}`);
     },
-    uploadPost: (formData)=>{
-        return axios.post(`${URL}/post/upload`, formData, {headers: {'Content-Type': 'multipart/form-data'}});
+    uploadPost: (data)=>{
+        return axios.post(`${URL}/post/upload`, data); //{headers: {'Content-Type': 'multipart/form-data'}}
     },
     userExist:(username) => {
         return axios.get(`${URL}/api/auth/${username}`);
