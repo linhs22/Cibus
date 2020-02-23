@@ -19,7 +19,6 @@ import debounce from "lodash.debounce";
    };
 
    componentDidMount() {
-
     window.addEventListener('scroll', this.handleScrollEvent);
   };
 
@@ -52,7 +51,6 @@ import debounce from "lodash.debounce";
           this.setState({
               results: [...this.state.results, ...res.data],
               offset: this.state.offset++,
-              // original: res.data.results,
               count: this.state.count++,
               offset: this.state.offset++
           });
@@ -68,9 +66,6 @@ import debounce from "lodash.debounce";
         {/* {this.props.posts.results.length > 0? this.props.posts.results.map(post => <Postcard posts={post}/>) : ""}; */}
         {/* <Postcard posts={this.props.posts.results[0]}/> */}
       </div>
-
-     
-
     );
   }
 }

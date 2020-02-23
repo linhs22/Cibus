@@ -12,8 +12,8 @@ const API = {
     getUsers: (username, numberUsers)=>{
         return axios.get(`${URL}/api/usrs/${username}/${numberUsers}`);
     },
-    uploadPost: (formData)=>{
-        return axios.post(`${URL}/post/upload`, formData, {headers: {'Content-Type': 'multipart/form-data'}});
+    uploadPost: (data)=>{
+        return axios.post(`${URL}/post/upload`, data); //{headers: {'Content-Type': 'multipart/form-data'}}
     },
     userExist:(username) => {
         return axios.get(`${URL}/api/auth/${username}`);

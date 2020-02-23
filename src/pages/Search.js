@@ -1,83 +1,100 @@
-import React, { Component } from "react";
-// import Header from "../components/Header"
-// import "../components/Post/Style.css";
-import image from "./FryingPan.png"
-import Postcard from "../components/Postcard"
+import React from 'react';
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+import CameraIcon from '@material-ui/icons/PhotoCamera';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Grid from '@material-ui/core/Grid';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import Link from '@material-ui/core/Link';
+import Searchbar from "../components/Searchbar"
+import Searchcard from "../components/Searchcard"
 
-var hidden = true
-var display = "none"
+function Copyright() {
+    return (
+        <Typography variant="body2" color="textSecondary" align="center">
+            {'Copyright © '}
+            <Link color="inherit" href="https://material-ui.com/">
+                Your Website
+      </Link>{' '}
+            {new Date().getFullYear()}
+            {'.'}
+        </Typography>
+    );
+}
 
-class Search extends Component {
+const useStyles = makeStyles(theme => ({
+    icon: {
+        marginRight: theme.spacing(2),
+    },
+    heroContent: {
+        backgroundColor: theme.palette.background.paper,
+        padding: theme.spacing(8, 0, 6),
+    },
+    heroButtons: {
+        marginTop: theme.spacing(4),
+    },
+    cardGrid: {
+        paddingTop: theme.spacing(8),
+        paddingBottom: theme.spacing(8),
+    },
+    card: {
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    cardMedia: {
+        paddingTop: '56.25%', // 16:9
+    },
+    cardContent: {
+        flexGrow: 1,
+    },
+    footer: {
+        backgroundColor: theme.palette.background.paper,
+        padding: theme.spacing(6),
+    },
+}));
 
-  render() {
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-
-    function checkDisplay() {   
-      hidden = !hidden   
-      if (hidden){
-        display = "none";
-      } else {
-        display = "block";
-      };
-    };
-
-    function addButtons(e){
-      // hidden = true
-      checkDisplay()
-    }
-
-
-
+export default function Album() {
+    const classes = useStyles();
 
     return (
-      <div>
-        {/* <Header /> */}
-        <br />
-        <br />
-        <br />
-        <form>
-          <br />
-          <br />
-          <br />
-          <div className="searchBar" style={{          
-            margin: "auto",
-            width: "50%",
-          }}>
+        <React.Fragment>
+            <CssBaseline />
+            <AppBar position="relative">
 
-     
-            <h3 style={{ marginLeft: "20%" }}>Search</h3>
+            </AppBar>
+            <main>
+                {/* Hero unit */}
+                <div className={classes.heroContent}>
+                    <Container maxWidth="sm">
 
-            <input style={{ marginLeft: "20%" }}
-              type="text"
-              ref="search"
-              placeholder="User, Tag, Food?"
-              onClick={addButtons}
-            // value=""
-            />
+                        <Searchbar />
 
-            <img style={{ height: "30px", padding: "4px", cursor: "pointer", }} src={image} alt="Frying Pan" />
-
-          </div>
-          <Postcard />
-
-          {/* <div className= "buttonsDiv" style= {{display: {display}}}>
-            <button>
-              Button 1
-            </button>
-            <button>
-              Button 1
-            </button>
-            <button>
-              Button 1
-            </button>
-          </div> */}
-          <br />
-          <br />
-          <br />
-
-        </form>
-      </div>
-    )
-  }
+                    </Container>
+                </div>
+                <Container className={classes.cardGrid} maxWidth="md">
+                    {/* End hero unit */}
+                    <Grid container spacing={4}>
+                        {cards.map(card => (
+                            <Grid item key={card} xs={12} sm={6} md={4}>
+                                <Card className={classes.card}>
+                                    
+                                    <Searchcard />
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Container>
+            </main>
+        </React.Fragment>
+    );
 }
-export default Search;

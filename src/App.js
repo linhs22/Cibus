@@ -62,24 +62,14 @@ function App() {
           <Route exact path="/home" component={HomePage} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/profile" component={Profile} />
-          <Route exact path="/post" component={Post} />
+          <Route exact path="/post">
+            <Post user={user}></Post>
+          </Route>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route component={NoMatch} />
         </Switch>
       </Router>
-      {/* <BottomNavigation
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-        showLabels
-        className={classes.root}
-      >
-        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
-      </BottomNavigation> */}
       <Footer />
     </div>
 
