@@ -8,29 +8,29 @@ class Nutrilabel extends React.Component {
       <div className="card">
         <div className="card-content">
           <div className="row" id="nutriFacts">
-            <div id="specCol" className="col s12">
-            <br/> <br/> <br/>
+            <div id="specColdiv" className="col s12">
+              <br /> <br /> <br />
               <h4 id="specH4">Nutrition Facts</h4>
             </div>
           </div>
           <hr id="specCol" />
           <div className="row" id="serve">
-            <div id="servingCol" className="col s4">
-              Serving size
+            <div id="servingCol" className="col s6">
+              <p>Serving size</p>
                   </div>
             <div id="servColTwo" className="col s8" id="servingSize">
-              0
+            <p id="pLeft">0</p>
                   </div>
           </div>
           <hr id="thick" />
           <div className="row">
             <div id="amountCol" className="col s12">
-              Amount per serving
+              <p>Amount per serving</p>
                   </div>
           </div>
           <div className="row">
             <div className="col s6" id="cal">
-              Calories
+              <p>Calories</p>
                   </div>
             <div className="col s6" id="calories">
             </div>
@@ -38,115 +38,115 @@ class Nutrilabel extends React.Component {
           <hr id="under" />
           <div className="row">
             <div className="col s12" id="dailyValue">
-              % Daily Value*
+              <p id="pLeft">% Daily Value*</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s10" id="fat">
-                Total Fat 0g
+              <p>Total Fat 0g</p>
                   </div>
             <div className="col s2" id="fatPercent">
-              0%
+            <p id="pLeft">0%</p>
                   </div>
           </div>
-          {/* <hr id="transHr" /> */}
+          <hr id="transHr" />
           <div className="row">
             <div className="col s10" id="satFat">
-              Saturated Fat 0g
+              <p>-Saturated Fat 0g</p>
                   </div>
             <div className="col s2" id="satFatPercent">
-              0%
+            <p id="pLeft">0%</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s12" id="transfat">
-              Trans Fat 0g
+              <p>-Trans Fat 0g</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s10" id="cholesterol">
-                Cholesterol 0mg
+              <p>Cholesterol 0mg</p>
                   </div>
             <div className="col s2" id="cholesterolpercent" >
-              0%
+            <p id="pLeft">0%</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s10" id="sodium" >
-                Sodium 0mg
+              <p>Sodium 0mg</p>
                   </div>
             <div className="col s2" id="sodiumpercent">
-              0%
+            <p id="pLeft">0%</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s10" id="carbs">
-                Total Carbohydrate 0g
+              <p>Total Carbohydrate 0g</p>
                   </div>
             <div className="col s2" id="carbspercent">
-              0%
+            <p id="pLeft">0%</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s10" id="fiber">
-              Dietary Fiber 0g
+              <p>-Dietary Fiber 0g</p>
                   </div>
             <div className="col s2" id="fiberpercent">
-              0%
+            <p id="pLeft">0%</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s12" id="sugar" >
-              Total Sugars 0g
+              <p>-Total Sugars 0g</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s12" id="protien" >
-                Protein 0g
+              <p>Protein 0g</p>
                   </div>
           </div>
           <hr id="thick" />
           <div className="row">
             <div className="col s10" id="ammountCol">
-              Vitamin A
+              <p>Vitamin A</p>
                   </div>
             <div className="col s2" id="vita">
-              0%
+            <p id="pLeft">0%</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s10" id="ammountCol">
-              Calcium
+              <p>Calcium</p>
                   </div>
             <div className="col s2" id="calcium">
-              0%
+            <p id="pLeft">0%</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s10" id="ammountCol">
-              Iron
+              <p>Iron</p>
                   </div>
             <div className="col s2" id="iron">
-              0%
+            <p id="pLeft">0%</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s10" id="ammountCol">
-              Potassium
+              <p>Potassium</p>
                   </div>
             <div className="col s2" id="potassium">
-              0%
+            <p id="pLeft">0%</p>
                   </div>
           </div>
           <hr id="under" />
@@ -158,7 +158,7 @@ class Nutrilabel extends React.Component {
 
 
         </div>
-        <br/> <br/> <br/>
+        <br /> <br /> <br />
       </div>
     );
   }
