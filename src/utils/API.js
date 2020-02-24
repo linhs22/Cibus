@@ -10,7 +10,7 @@ const API = {
         return axios.get(`${URL}/api/followers/${userid}/${offset}`);
     },
     getUsers: (username, numberUsers)=>{
-        return axios.get(`${URL}/api/usrs/${username}/${numberUsers}`);
+        return axios.get(`${URL}/api/users/${username}/${numberUsers}`);
     },
     uploadPost: (data)=>{
         return axios.post(`${URL}/post/upload`, data); //{headers: {'Content-Type': 'multipart/form-data'}}
@@ -23,7 +23,10 @@ const API = {
     },
     nutrition: (data) => {
         return axios.post(`${URL}/api/nutrition`, data);
-    }
+    },
+    post: (data) => {
+        return axios.post(`${URL}/post/submit`, data);
+    } 
     // login:(user)=>{
     //     return axios.post(`${URL}/api/auth/login`,user,{withCredentials:true})
     // },

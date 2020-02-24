@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
@@ -15,7 +15,7 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Searchbar from "../components/Searchbar"
 import Searchcard from "../components/Searchcard"
-
+import API from "../utils/API";
 
 
 function Copyright() {
@@ -65,8 +65,24 @@ const useStyles = makeStyles(theme => ({
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-export default function Album() {
+export default function Album(props) {
+    const [search, setSearch] = useState("");
     const classes = useStyles();
+    const numberOfUsersToSearch = 20;
+
+    useEffect(() => {
+        if(!search) {
+            return;
+        }
+        API.getUsers(search, numberOfUsersToSearch)
+        .then(res => {
+            console.log(res);
+        })
+    })
+    const handleInputChange = event => {
+        setSearch(event.target.value);
+        console.log(search)
+    };
 
     return (
         <React.Fragment>
@@ -78,10 +94,7 @@ export default function Album() {
                 {/* Hero unit */}
                 <div className={classes.heroContent}>
                     <Container maxWidth="sm">
-
-                        <Searchbar />
-                       
-
+                        <Searchbar handleInputChange={handleInputChange} name="searchValue" value={search}/>
                     </Container>
                 </div>
                 <Container className={classes.cardGrid} maxWidth="md">

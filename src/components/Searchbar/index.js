@@ -19,8 +19,6 @@ class Searchbar extends React.Component {
             width: "50%",
             display: "inline-block"
           }}>
-
-
             <h3>Search</h3>
             <br />
           
@@ -29,8 +27,8 @@ class Searchbar extends React.Component {
               type="text"
               ref="search"
               placeholder="Tacos, Jacob, etc"
-            // onClick={addButtons}
-            // value=""
+              onChange={this.props.handleInputChange}
+              value={this.props.search}
             />
             <Searchmenu />
             <br />
