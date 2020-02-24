@@ -2,7 +2,7 @@ import React from "react";
 import home from "./home.png"
 import post from "./post.png"
 import profile from "./profile.png"
-import search from "./search.png"
+import search from "./egg.png"
 import "./Footer.css";
 
 class Footer extends React.Component {

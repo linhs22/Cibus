@@ -16,9 +16,10 @@ export default function Searchmenu() {
 
   return (
     <div>
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} style={{border:"1px solid grey", borderRadius:"25px"}}>
         Search for...
       </Button>
+      <br/>
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
