@@ -21,6 +21,9 @@ const API = {
     signup:(user) => {
         return axios.post(`${URL}/api/auth/signup`, user);
     },
+    nutrition: (data) => {
+        return axios.post(`${URL}/api/nutrition`, data);
+    }
     // login:(user)=>{
     //     return axios.post(`${URL}/api/auth/login`,user,{withCredentials:true})
     // },

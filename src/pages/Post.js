@@ -26,9 +26,12 @@ const myStyle = {
     newIngredient: "",
     selectedFile: null,
     loadFile: null,
-    concepts: null,
+    concepts: [],
+    conceptFilter: 0.80,
     imageUrl: null,
     show: false,
+    showLabel: false,
+    nutrition: null,
     groupProps: {
       appear: true,
       enter: true,
@@ -61,10 +64,11 @@ const myStyle = {
   // Ingredient List
   addIngredient = (event) => {
     event.preventDefault();
-    console.log(event);
+    if(this.state.newIngredient) {
     this.setState({
       concepts: [...this.state.concepts, {name: this.state.newIngredient}]
     });
+    }
   };
 
   handleChange = event => {
@@ -72,8 +76,53 @@ const myStyle = {
     this.setState({
       [name]: value
     })
+  };
+
+  handleIngredientChange = (event) => {
+    const { name, value, id } = event.target;
+    // const list = this.state.concepts.map(item=>{
+    //       if (this.state.concepts.indexOf(item) === parseInt(id)) 
+    //       {
+    //         item[name] = value;
+    //       }
+    //     });
+    this.setState(
+      // {concepts: list}
+      state => {
+      const list = state.concepts.map(item=>{
+        if (state.concepts.indexOf(item) === parseInt(id)) 
+        {
+          item[name] = value;
+        }
+      });
+      return list;
+    })};
+
+  removeIngredient = event => {
+    this.setState({ concepts: this.state.concepts.filter( item =>
+      this.state.concepts.indexOf(item) !== +event.currentTarget.getAttribute('data-id')
+    )});
   }
-  ///////////////////// PAOLO /////////////////////
+
+  handleClickNutrition = () => {
+    //Filter out unnecessary items
+    var convertArray = this.state.concepts.filter(item => item.amount > 0);
+    //Build string for Nutritionix natural language
+    var string = "";
+    for (const item in convertArray) {
+      if (item > 0) string += `, ${convertArray[item].amount}g ${convertArray[item].name}`;
+      else          string += `${convertArray[item].amount}g ${convertArray[item].name}`;
+    };
+    API.nutrition({string})
+    .then(res => {
+      console.log(res.data.foods[0]);
+      this.setState({
+        nutrition: res.data.foods[0]
+      });
+    })
+    .catch(err => console.log(err));
+  };
+
     render() {
 
       return(
@@ -100,18 +149,37 @@ const myStyle = {
                           </div> :
                           <div className="form-group files color">
                             <label>Upload Your Image</label>
-                            <input type="file" className="form-control" name="file" onChange={this.onChangeHandler}></input>
+                            <input type="file" className="form-control hidden" name="file" onChange={this.onChangeHandler}></input>
                           </div>
                         }
                       </div>
-                      
                       <TransitionGroup {...this.state.groupProps}>
                         {this.state.concepts?
-                          this.state.concepts.map( item => (
-                          <Fade key={this.state.concepts.indexOf(item)} bottom>
+                          this.state.concepts.filter(item => item.value > this.state.conceptFilter || item.value === undefined)
+                          .map( item => (
+                          <Fade key={this.state.concepts.indexOf(item)} collapse bottom>
                             <div className="card">
-                              <div className="card-body justify-content-between">
+                              <div className="card-body justify-content-between" style={myStyle.container}>
                                 {item.name}
+                                <div>
+                                    <input
+                                    type="number"
+                                    name='amount'
+                                    id={this.state.concepts.indexOf(item)}
+                                    placeholder="Enter amount (10g)"
+                                    value={item.amount? parseInt(item.amount) : ""}
+                                    onChange={this.handleIngredientChange}
+                                  />&nbsp;&nbsp;
+                                  <button
+                                    data-id={this.state.concepts.indexOf(item)}
+                                    onClick={this.removeIngredient}
+                                    type="button"
+                                    className="close"
+                                    aria-label="Close"
+                                  ><span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                
                               </div>
                             </div>
                           </Fade>)) :
@@ -132,8 +200,7 @@ const myStyle = {
                             <button
                               onClick={this.addIngredient}
                               className="btn btn-outline-success"
-                              type="button"
-                            >
+                              type="button">
                               Add Item
                             </button>
                           </div>
@@ -141,44 +208,17 @@ const myStyle = {
                         <small id="emailHelp" className="form-text text-muted">
                           Item Count: {this.state.concepts? this.state.concepts.length : "0"}
                         </small>
+                        <button
+                          className="btn btn-info btn-lg btn-block my-5"
+                          type="button"
+                          onClick={this.handleClickNutrition}
+                        >
+                          { this.state.showLabel ? 'Re-calculate' : 'Calculate' }
+                        </button>
                       </div>
                     </form>
                   </div>
               </div>
-              {/* <Fade top cascade collapse when={this.state.show}>
-                <div style={myStyle.container}>
-                  { this.state.concepts? (
-                    <List style={{display: "flex", flexDirection:"column", flexGrow:"1"}}>
-                      {this.state.concepts.map(concepts => (
-                        <ListItem key={concepts.name}>
-                          <a href={"/ingredients/" + ingredient._id}>
-                            <strong>
-                              {ingredient} by {ingredient}
-                            </strong>
-                          </a>
-                        </ListItem>
-                      ))}
-                    </List>
-                    ) : (
-                      
-                      <h3>No Results to Display</h3>
-                    )
-                  }
-                </div>
-              </Fade> */}
-              {/* <div style={myStyle.container}>
-                <Fade>
-                  <div>
-                    <h2>React Reveal</h2>
-                    <h2>React Reveal</h2>
-                    <h2>React Reveal</h2>
-                  </div>
-                </Fade>
-              </div> */}
-              
-
-                
-              {/* </div> */}
               
               {/* <div className="Post-caption">
                 <input className="description-field"
@@ -189,9 +229,14 @@ const myStyle = {
                 >
                 </input>
               </div> */}
-              <div style={myStyle.container}>
-                <Nutrilabel/>
-              </div>
+              {this.state.nutrition? 
+                <Fade top>
+                  <div style={myStyle.container}>
+                    <Nutrilabel nutrition={this.state.nutrition}/>
+                  </div> 
+                </Fade> :
+                ""
+              }
               
             </article>  
           </div>
