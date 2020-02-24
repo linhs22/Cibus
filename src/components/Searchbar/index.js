@@ -21,6 +21,7 @@ class Searchbar extends React.Component {
           }}>
             <h3>Search</h3>
             <br />
+          
 
             <input
               type="text"
@@ -32,7 +33,7 @@ class Searchbar extends React.Component {
             <Searchmenu />
             <br />
 
-            <img src={image} style={{ border: ".5px solid lightgrey", borderRadius: "25%" }} alt="Search" />
+            {/* <img src={image} style={{ border: ".5px solid lightgrey", borderRadius: "25%" }} alt="Search" /> */}
 
 
           </div>
