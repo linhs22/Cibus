@@ -31,6 +31,7 @@ const myStyle = {
     imageUrl: null,
     show: false,
     showLabel: false,
+    nutrition: null,
     groupProps: {
       appear: true,
       enter: true,
@@ -115,7 +116,10 @@ const myStyle = {
     };
     API.nutrition({string})
     .then(res => {
-      console.log(res.data);
+      //console.log(res.data.foods[0]);
+      this.setState({
+        nutrition: res.data
+      });
     })
     .catch(err => console.log(err));
   };
@@ -216,30 +220,6 @@ const myStyle = {
                     </form>
                   </div>
               </div>
-              {/* <Fade top cascade collapse when={this.state.show}>
-                <div style={myStyle.container}>
-                  { this.state.concepts? (
-                    <List style={{display: "flex", flexDirection:"column", flexGrow:"1"}}>
-                      {this.state.concepts.map(concepts => (
-                        <ListItem key={concepts.name}>
-                          <a href={"/ingredients/" + ingredient._id}>
-                            <strong>
-                              {ingredient} by {ingredient}
-                            </strong>
-                          </a>
-                        </ListItem>
-                      ))}
-                    </List>
-                    ) : (
-                      
-                      <h3>No Results to Display</h3>
-                    )
-                  }
-                </div>
-              </Fade> */}          
-
-                
-              {/* </div> */}
               
               {/* <div className="Post-caption">
                 <input className="description-field"
@@ -250,9 +230,9 @@ const myStyle = {
                 >
                 </input>
               </div> */}
-              {/* <div style={myStyle.container}>
-                <Nutrilabel/>
-              </div> */}
+              <div style={myStyle.container}>
+                <Nutrilabel nutrition={this.state.nutrition}/>
+              </div>
             </article>  
           </div>
     );
