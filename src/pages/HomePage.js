@@ -15,10 +15,17 @@ import debounce from "lodash.debounce";
      count: 0,
      numOfPostToGet: 1,
      offset: 0,
-     userProps: false
+     userProps: false,
+     user:{}
    };
 
    componentDidMount() {
+     API.userExist("mechea").then(data=>{
+       console.log(data.data);
+       this.setState({
+         user:data.data
+       })
+     })
     window.addEventListener('scroll', this.handleScrollEvent);
   };
 
@@ -27,7 +34,7 @@ import debounce from "lodash.debounce";
   }
 
   componentDidUpdate() {
-    if(this.props.user && !this.state.userProps)
+    if(this.state.user && !this.state.userProps)
     {
       this.getUsers(this.state.numOfPostToGet); 
       this.setState({userProps: true});
@@ -46,7 +53,7 @@ import debounce from "lodash.debounce";
 
   getUsers = (numOfPostToGet) => {
       console.log("Hello");
-      API.getPostsHomepage(this.props.user.id, this.state.offset)
+      API.getPostsHomepage(this.state.user.id, this.state.offset)
       .then(res => {
           this.setState({
               results: [...this.state.results, ...res.data],
@@ -62,7 +69,7 @@ import debounce from "lodash.debounce";
   render() {
     return (
       <div>
-        {this.state.results.length > 0? this.state.results.map(post => <Postcard posts={post} key={this.state.results.indexOf(post)} id={this.state.results.indexOf(post)} user={this.props.user}/>) : ""};
+        {this.state.results.length > 0? this.state.results.map(post => <Postcard posts={post} key={this.state.results.indexOf(post)} id={this.state.results.indexOf(post)} user={this.state.user}/>) : ""};
         {/* {this.props.posts.results.length > 0? this.props.posts.results.map(post => <Postcard posts={post}/>) : ""}; */}
         {/* <Postcard posts={this.props.posts.results[0]}/> */}
       </div>
