@@ -44,7 +44,7 @@ class Nutrilabel extends React.Component {
           <hr id="transHr" />
           <div className="row">
             <div className="col s10" id="fat">
-              <p>Total Fat 0g</p>
+              <p>Total Fat {this.props.nutrition? this.props.nutrition.nf_total_fat : "0"}g</p>
                   </div>
             <div className="col s2" id="fatPercent">
             <p id="pLeft">0%</p>

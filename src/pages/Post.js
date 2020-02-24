@@ -90,7 +90,6 @@ const myStyle = {
       // {concepts: list}
       state => {
       const list = state.concepts.map(item=>{
-        console.log(item, name, id);
         if (state.concepts.indexOf(item) === parseInt(id)) 
         {
           item[name] = value;
@@ -116,9 +115,9 @@ const myStyle = {
     };
     API.nutrition({string})
     .then(res => {
-      //console.log(res.data.foods[0]);
+      console.log(res.data.foods[0]);
       this.setState({
-        nutrition: res.data
+        nutrition: res.data.foods[0]
       });
     })
     .catch(err => console.log(err));
@@ -230,9 +229,15 @@ const myStyle = {
                 >
                 </input>
               </div> */}
-              <div style={myStyle.container}>
-                <Nutrilabel nutrition={this.state.nutrition}/>
-              </div>
+              {this.state.nutrition? 
+                <Fade top>
+                  <div style={myStyle.container}>
+                    <Nutrilabel nutrition={this.state.nutrition}/>
+                  </div> 
+                </Fade> :
+                ""
+              }
+              
             </article>  
           </div>
     );
