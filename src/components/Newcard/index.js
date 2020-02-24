@@ -19,11 +19,9 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 const useStyles = makeStyles(theme => ({
   root: {
     maxWidth: 345,
-    borderRight: "1px solid grey",
-    borderBottom: "1px solid grey",
-    // boxShadow: "rgba(110, 109, 109, 0.60) 5px 5px",
+    borderRight: ".25px solid lightgrey",
+    borderBottom: ".5px solid lightgrey",
     margin:"5%",
-    // marginBottom:"5%",
     float:"left"
     
   },
