@@ -17,7 +17,7 @@ export default function Searchmenu() {
   return (
     <div>
       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        Search for...
+        Foodies or Food?
       </Button>
       <Menu
         id="simple-menu"
@@ -28,7 +28,7 @@ export default function Searchmenu() {
       >
         <MenuItem onClick={handleClose}>Foods</MenuItem>
         <MenuItem onClick={handleClose}>Foodies</MenuItem>
-        
+
       </Menu>
     </div>
   );

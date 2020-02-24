@@ -1,6 +1,6 @@
 .card {
   padding-top: 5px;
-   border: 2px solid black;
+   /* border: 2px solid black; */
    width: 400px;
    margin-left:2%;
    margin-right:2%
@@ -9,6 +9,7 @@
 .card-content {
   text-align: left;
   padding-top: 5px;
+
   margin: 0
 }
 
@@ -16,11 +17,20 @@
   margin: 1px; 
   padding: 0;
 }
+#nutriFacts {
+  /* border:1px solid black; */
+  padding-left:5px;
+  padding-right:5px;
+}
 
 #specCol {
   padding: "0";
    margin: "0"
 }
+/* #specColdiv {
+  padding-left:5px;
+  padding-right:5px;
+} */
 
 .specH4 {
   margin: 0;
@@ -29,7 +39,7 @@
 
 #servingCol {
   font-size: large;
-   padding: 0;
+   padding: 0px;
     margin: 0;
 }
 
@@ -53,6 +63,7 @@
 font-size: large; 
 padding: 0; 
 margin: 0;
+/* border: none */
 }
 
 #cal {
@@ -223,4 +234,10 @@ text-align: right
 
 #advice {
  font-size: small;
+}
+p {
+  margin-left:20px
+}
+#pLeft {
+  margin-right:20px;
 }
