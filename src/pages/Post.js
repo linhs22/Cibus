@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Nutrilabel from "../components/Nutrilabel/index"
 import { List, ListItem } from "../components/List";
-import {Redirect,withRouter} from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import API from "../utils/API";
 import Fade from "react-reveal/Fade";
 import Flash from "react-reveal/Flash";
@@ -154,7 +154,7 @@ class Post extends React.Component {
     API.post(postData)
       .then(res => {
         console.log("done");
-        this.props.history.push("/");  
+        this.props.history.push("/");
       })
       .catch(err => console.log(err));
   }
@@ -330,16 +330,20 @@ class Post extends React.Component {
                   >
                     Share
                       </button>
-                  <div style={myStyle.container}>
-                    <div className="row" >
-                      <input type="text" placeholder="Watcha eat?" name="description" value={this.state.description} onChange={this.handleChange}></input><br></br>
+                  <div style={{ textAlign: "center" }}>
+                    <div style={{ display: "inline-block" }} >
+                      <input type="text" placeholder="Watcha eat?" name="description" value={this.state.description} onChange={this.handleChange} style={{ textAlign: "center", border: "1px solid grey", width:"600px", borderRadius: "25px", padding: "5px" }}></input><br></br>
                     </div>
-                    <div className="row" >
-                      <input type="text" placeholder="How you make it?" name="recipe" value={this.state.recipe} onChange={this.handleChange}></input><br></br>
+                    <br />
+
+                    <div style={{ display: "inline-block" }}>
+                      <input type="text" placeholder="Where y'at?" name="location" value={this.state.location} onChange={this.handleChange} style={{ textAlign: "center", border: "1px solid grey", width:"600px", borderRadius: "25px", padding: "5px" }}></input>
                     </div>
-                    <div className="row" >
-                      <input type="text" placeholder="Where y'at?" name="location" value={this.state.location} onChange={this.handleChange}></input>
+                    <br/>
+                    <div style={{ display: "inline-block" }}>
+                      <textarea type="text" placeholder="How'd'ya do it?" name="recipe" value={this.state.recipe} onChange={this.handleChange} style={{ textAlign: "center", border: "1px solid grey", padding: "20px", width:"600px", borderRadius: "25px", height:"300px" }}></textarea><br></br>
                     </div>
+                    <br />
                   </div>
                 </Fade> :
                 ""

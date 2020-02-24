@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import Nutrilabel from "../Nutrilabel";
 
 
 const styles = {
   imageStyle: {
-    width: "300px",
-    height: "300px"
+    width: "600px",
+    height: "auto",
+    display:"inline-block"
   }
 };
 
@@ -23,8 +25,9 @@ class PostCard extends Component {
           </div>
         </header>
         <div className="Post-image">
-          <div className="Post-image-bg">
+          <div className="Post-image-bg" style={{textAlign:"center"}}>
             {<img style={styles.imageStyle} alt="Icon Living" src={this.props.posts? this.props.posts.image : ""} />}
+           
           </div>
         </div>
         <div className="Post-description">

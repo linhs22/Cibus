@@ -16,9 +16,9 @@ export default function Searchmenu() {
 
   return (
     <div>
-      <br/>
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} style={{border:"1px solid lightgrey", borderRadius:"25px"}}>
-        Submit
+      <br />
+      {/* <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} style={{border:"1px solid lightgrey", borderRadius:"25px"}}>
+        Choose a search
       </Button>
       <Menu
         id="simple-menu"
@@ -30,7 +30,15 @@ export default function Searchmenu() {
         <MenuItem onClick={handleClose}>Search Foods</MenuItem>
         <MenuItem onClick={handleClose}>Search Foodies</MenuItem>
 
-      </Menu>
+      </Menu> */}
+      <div>
+      <Button variant="contained" color="primary">
+  Foodie
+</Button>
+<Button variant="contained" disabled>
+  Food
+</Button>
+      </div>
     </div>
   );
 }
