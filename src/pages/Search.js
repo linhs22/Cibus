@@ -16,6 +16,8 @@ import Link from '@material-ui/core/Link';
 import Searchbar from "../components/Searchbar"
 import Searchcard from "../components/Searchcard"
 
+
+
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
@@ -78,6 +80,7 @@ export default function Album() {
                     <Container maxWidth="sm">
 
                         <Searchbar />
+                       
 
                     </Container>
                 </div>
