@@ -3,6 +3,7 @@ import home from "./home.png"
 import post from "./post.png"
 import profile from "./profile.png"
 import search from "./search.png"
+import egg from "./egg.png"
 import "./Footer.css";
 
 class Footer extends React.Component {
@@ -21,7 +22,9 @@ class Footer extends React.Component {
                         <img src={post} />
                     </a>
                     <a href="Search" class="navButton">
-                        <img src={search} />
+                        {/* <img src={search} /> */}
+                        <img src={egg} />
+
                     </a>
                 </div>
             </div>

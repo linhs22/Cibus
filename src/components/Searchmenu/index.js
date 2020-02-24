@@ -16,8 +16,9 @@ export default function Searchmenu() {
 
   return (
     <div>
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        Foodies or Food?
+      <br/>
+      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} style={{border:"1px solid lightgrey", borderRadius:"25px"}}>
+        Submit
       </Button>
       <Menu
         id="simple-menu"
@@ -26,8 +27,8 @@ export default function Searchmenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Foods</MenuItem>
-        <MenuItem onClick={handleClose}>Foodies</MenuItem>
+        <MenuItem onClick={handleClose}>Search Foods</MenuItem>
+        <MenuItem onClick={handleClose}>Search Foodies</MenuItem>
 
       </Menu>
     </div>
