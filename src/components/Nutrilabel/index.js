@@ -19,7 +19,7 @@ class Nutrilabel extends React.Component {
               <p>Serving size</p>
                   </div>
             <div id="servColTwo" className="col s8" id="servingSize">
-            <p id="pLeft">0</p>
+            <p id="pLeft">1</p>
                   </div>
           </div>
           <hr id="thick" />
@@ -30,7 +30,7 @@ class Nutrilabel extends React.Component {
           </div>
           <div className="row">
             <div className="col s6" id="cal">
-              <p>Calories</p>
+              <p>Calories {this.props.nutrition? parseFloat(this.props.nutrition.nf_calories.toFixed(0)) : 0}</p>
                   </div>
             <div className="col s6" id="calories">
             </div>
@@ -44,73 +44,73 @@ class Nutrilabel extends React.Component {
           <hr id="transHr" />
           <div className="row">
             <div className="col s10" id="fat">
-              <p>Total Fat {this.props.nutrition? this.props.nutrition.nf_total_fat : "0"}g</p>
+              <p>Total Fat {this.props.nutrition? parseFloat(this.props.nutrition.nf_total_fat.toFixed(0)) : 0}g</p>
                   </div>
             <div className="col s2" id="fatPercent">
-            <p id="pLeft">0%</p>
+            <p id="pLeft">{this.props.nutrition? parseFloat(((this.props.nutrition.nf_total_fat / 65) * 100).toFixed(0)) : 0}%</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s10" id="satFat">
-              <p>-Saturated Fat 0g</p>
+              <p>-Saturated Fat {this.props.nutrition? parseFloat(this.props.nutrition.nf_saturated_fat.toFixed(1)) : 0}g</p>
                   </div>
             <div className="col s2" id="satFatPercent">
-            <p id="pLeft">0%</p>
+            <p id="pLeft"></p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s12" id="transfat">
-              <p>-Trans Fat 0g</p>
+              <p>-Trans Fat {this.props.nutrition? parseFloat(this.props.nutrition.full_nutrients[53].value.toFixed(1)) : 0}g</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s10" id="cholesterol">
-              <p>Cholesterol 0mg</p>
+              <p>Cholesterol {this.props.nutrition? parseFloat(this.props.nutrition.nf_cholesterol.toFixed(0)) : 0}mg</p>
                   </div>
             <div className="col s2" id="cholesterolpercent" >
-            <p id="pLeft">0%</p>
+            <p id="pLeft">{this.props.nutrition? parseFloat(((this.props.nutrition.nf_calories / 3000) * 100).toFixed(0)) : 0}%</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s10" id="sodium" >
-              <p>Sodium 0mg</p>
+              <p>Sodium {this.props.nutrition? parseFloat(this.props.nutrition.nf_sodium.toFixed(0)) : 0}mg</p>
                   </div>
             <div className="col s2" id="sodiumpercent">
-            <p id="pLeft">0%</p>
+            <p id="pLeft">{this.props.nutrition? parseFloat(((this.props.nutrition.nf_sodium.toFixed(0) / 2400) * 100).toFixed(0)) : 0}%</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s10" id="carbs">
-              <p>Total Carbohydrate 0g</p>
+              <p>Total Carbohydrate {this.props.nutrition? parseFloat(this.props.nutrition.nf_total_carbohydrate.toFixed(0)) : 0}g</p>
                   </div>
             <div className="col s2" id="carbspercent">
-            <p id="pLeft">0%</p>
+            <p id="pLeft">{this.props.nutrition? parseFloat(((this.props.nutrition.nf_total_carbohydrate / 300) * 100).toFixed(0)) : 0}%</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s10" id="fiber">
-              <p>-Dietary Fiber 0g</p>
+              <p>-Dietary Fiber {this.props.nutrition? parseFloat(this.props.nutrition.nf_dietary_fiber.toFixed(0)) : 0}g</p>
                   </div>
             <div className="col s2" id="fiberpercent">
-            <p id="pLeft">0%</p>
+            <p id="pLeft">{this.props.nutrition? parseFloat(((this.props.nutrition.nf_dietary_fiber / 25) * 100).toFixed(0)) : 0}%</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s12" id="sugar" >
-              <p>-Total Sugars 0g</p>
+              <p>-Total Sugars {this.props.nutrition? parseFloat(this.props.nutrition.nf_sugars.toFixed(1)) : 0}g</p>
                   </div>
           </div>
           <hr id="transHr" />
           <div className="row">
             <div className="col s12" id="protien" >
-              <p>Protein 0g</p>
+              <p>Protein {this.props.nutrition? parseFloat(this.props.nutrition.nf_protein.toFixed(1)) : 0}g</p>
                   </div>
           </div>
           <hr id="thick" />
@@ -119,7 +119,7 @@ class Nutrilabel extends React.Component {
               <p>Vitamin A</p>
                   </div>
             <div className="col s2" id="vita">
-            <p id="pLeft">0%</p>
+            <p id="pLeft">{this.props.nutrition? parseFloat(((this.props.nutrition.full_nutrients[30].value / 5000) * 100).toFixed(1)) : 0}%</p>
                   </div>
           </div>
           <hr id="transHr" />
@@ -128,7 +128,7 @@ class Nutrilabel extends React.Component {
               <p>Calcium</p>
                   </div>
             <div className="col s2" id="calcium">
-            <p id="pLeft">0%</p>
+            <p id="pLeft">{this.props.nutrition? parseFloat(((this.props.nutrition.full_nutrients[19].value / 1300) * 100).toFixed(1)) : 0}%</p>
                   </div>
           </div>
           <hr id="transHr" />
@@ -137,7 +137,7 @@ class Nutrilabel extends React.Component {
               <p>Iron</p>
                   </div>
             <div className="col s2" id="iron">
-            <p id="pLeft">0%</p>
+            <p id="pLeft">{this.props.nutrition? parseFloat(((this.props.nutrition.full_nutrients[20].value / 18) * 100).toFixed(1)) : 0}%</p>
                   </div>
           </div>
           <hr id="transHr" />
@@ -146,7 +146,7 @@ class Nutrilabel extends React.Component {
               <p>Potassium</p>
                   </div>
             <div className="col s2" id="potassium">
-            <p id="pLeft">0%</p>
+            <p id="pLeft">{this.props.nutrition? parseFloat(((this.props.nutrition.nf_potassium / 3500) * 100).toFixed(0)) : 0}%</p>
                   </div>
           </div>
           <hr id="under" />
