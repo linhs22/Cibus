@@ -73,6 +73,7 @@ import debounce from "lodash.debounce";
         {this.state.results.length > 0? this.state.results.map(post => <Postcard posts={post} key={this.state.results.indexOf(post)} id={this.state.results.indexOf(post) + 1} user={this.state.user}/>) : ""};
         {/* {this.props.posts.results.length > 0? this.props.posts.results.map(post => <Postcard posts={post}/>) : ""}; */}
         {/* <Postcard posts={this.props.posts.results[0]}/> */}
+        
       </div>
     );
   }
