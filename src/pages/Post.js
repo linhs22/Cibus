@@ -6,6 +6,7 @@ import API from "../utils/API";
 import Fade from "react-reveal/Fade";
 import Flash from "react-reveal/Flash";
 import TransitionGroup from 'react-transition-group/TransitionGroup';
+import Postcard from "../components/Postcard"
 
 const myStyle = {
   body: {
@@ -209,6 +210,7 @@ class Post extends React.Component {
                         <div className="form-group files color">
                           <label>Upload Your Image</label>
                           <input type="file" className="form-control hidden" name="file" onChange={this.onChangeHandler}></input>
+                          
                         </div>
                       }
                     </div>
