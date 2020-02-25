@@ -1,0 +1,7 @@
+#comments {
+    background-color: rgba(63, 176, 172, 1);
+    border: 1px solid lightgrey;
+    border-radius:15px;
+    padding:5px;
+    text-align: left;
+}
