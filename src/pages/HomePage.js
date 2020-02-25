@@ -20,8 +20,7 @@ import debounce from "lodash.debounce";
    };
 
    componentDidMount() {
-     API.userExist("mechea").then(data=>{
-       console.log(data.data);
+     API.userExist("javeyn").then(data=>{
        this.setState({
          user:data.data
        })
@@ -36,30 +35,29 @@ import debounce from "lodash.debounce";
   componentDidUpdate() {
     if(this.state.user && !this.state.userProps)
     {
-      this.getUsers(this.state.numOfPostToGet); 
+      this.getUsers(); 
       this.setState({userProps: true});
     }   
   }
     
 
   handleScrollEvent = debounce((event) => {
+      //if (document.getElementById(this.state.count) === null) return;
       console.log("scrollTop: " + document.documentElement.scrollTop);
       console.log("scrollTop: " + document.getElementById(this.state.count).offsetTop);
       console.log("Element scrollTop: " + document.getElementById(this.state.count).offsetTop);
       if (document.documentElement.scrollTop > document.getElementById(this.state.count).offsetTop) {
-      this.getUsers(this.state.count + this.state.usersToLoad);
+      this.getUsers();
       };
   }, 100);
 
-  getUsers = (numOfPostToGet) => {
-      console.log("Hello");
-      API.getPostsHomepage(this.state.user.id, this.state.offset)
+  getUsers = () => {
+      API.getPostsHomepage(this.state.user.id, this.state.offset, this.state.numOfPostToGet)
       .then(res => {
           this.setState({
               results: [...this.state.results, ...res.data],
-              offset: this.state.offset++,
-              count: this.state.count++,
-              offset: this.state.offset++
+              offset: this.state.offset + this.state.numOfPostToGet,
+              count: this.state.count + this.state.numOfPostToGet
           });
       })
       //.then(console.log(this.state.results + this.state.search))

@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Searchcard(props) {
+export default function Searchcardfood(props) {
   const classes = useStyles();
   console.log(props)
   return (
@@ -25,23 +25,22 @@ export default function Searchcard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={props.user.image}
-          title={`Image of ${props.user.username}`}
+          image={props.post.image}
+          title={`Image of ${props}`}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {props.user.username}
-            {/* {whatever.foodname} */}
+            {props.post.description}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {/* {whatever.description} */}
+            {props.post.recipe}
             {/* {whatever.profiledescription} */}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Follow
+          Tag
         </Button>
       </CardActions>
     </Card>

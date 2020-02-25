@@ -6,8 +6,8 @@ const API = {
     getPosts: (userid, numberPosts)=>{
         return axios.get(`${URL}/api/posts/${userid}/${numberPosts}`);
     },
-    getPostsHomepage: (userid, offset)=>{
-        return axios.get(`${URL}/api/followers/${userid}/${offset}`);
+    getPostsHomepage: (userid, offset, limit)=>{
+        return axios.get(`${URL}/api/followers/${userid}/${offset}/${limit}`);
     },
     getUsers: (username, numberUsers)=>{
         return axios.get(`${URL}/api/users/${username}/${numberUsers}`);

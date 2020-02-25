@@ -27,7 +27,7 @@ function App() {
   });
 
   useEffect(() => {
-    API.userExist("mechea")
+    API.userExist("javeyn")
     .then(res => {
       setUser({
         name: res.data.firstname,

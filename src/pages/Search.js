@@ -61,15 +61,13 @@ const useStyles = makeStyles(theme => ({
     footer: {
         backgroundColor: theme.palette.background.paper,
         padding: theme.spacing(6),
-    },
+    }
 }));
-
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export default function Album(props) {
     const [search, setSearch] = useState("");
     const [result, setResult] = useState();
-    const [searchType, setSearchType] = useState("Food");
+    const [searchType, setSearchType] = useState("Foodie");
     const classes = useStyles();
     const numberOfUsersToSearch = 20;
 
@@ -86,6 +84,7 @@ export default function Album(props) {
         if( searchType === "Food" ) {
             API.getSearchPosts(search, 10)
             .then(res => {
+                setResult(res);
                 console.log(res);
             })
         };
@@ -94,6 +93,11 @@ export default function Album(props) {
     const handleInputChange = event => {
         setSearch(event.target.value);
     };
+
+    const handleSearchType = event => {
+        setSearchType(event.target.getAttribute('value'));
+        setResult();
+    }
 
     return (
         <React.Fragment>
@@ -104,7 +108,7 @@ export default function Album(props) {
                 {/* Hero unit */}
                 <div className={classes.heroContent}>
                     <Container maxWidth="sm">
-                        <Searchbar handleInputChange={handleInputChange} name="searchValue" value={search}/>
+                        <Searchbar handleInputChange={handleInputChange} name="searchValue" value={search} searchType={searchType} handleSearchType={handleSearchType}/>
                     </Container>
                 </div>
                 <Container className={classes.cardGrid} maxWidth="md">
@@ -117,12 +121,12 @@ export default function Album(props) {
                                     {searchType === "Foodie"?
                                     <Searchcard user={card}/>
                                     :
-                                    <Searchcardfood user={card}/>
+                                    <Searchcardfood post={card}/>
                                     }
                                 </Card>
                             </Grid>
                         )) :
-                        ""
+                        "No results..."
                         }
                     </Grid>
                 </Container>

@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-export default function Searchmenu() {
+export default function Searchmenu(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = event => {
@@ -32,12 +32,12 @@ export default function Searchmenu() {
 
       </Menu> */}
       <div>
-      <Button variant="contained" color="primary">
-  Foodie
-</Button>
-<Button variant="contained" disabled>
-  Food
-</Button>
+      <Button variant="contained" color={props.searchType === "Foodie"? "primary" : ""}>
+        <div value="Foodie" onClick={props.handleSearchType}>Foodie</div>
+      </Button>
+      <Button variant="contained" color={props.searchType === "Food"? "primary" : ""}>
+        <div value="Food" onClick={props.handleSearchType}>Food</div>
+      </Button>
       </div>
     </div>
   );

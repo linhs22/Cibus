@@ -28,8 +28,7 @@ class Searchbar extends React.Component {
               onChange={this.props.handleInputChange}
               value={this.props.search}
             />
-            <Searchmenu />
-            <br />
+            <Searchmenu searchType={this.props.searchType} handleSearchType={this.props.handleSearchType}/>
 
             {/* <img src={image} style={{ border: ".5px solid lightgrey", borderRadius: "25%" }} alt="Search" /> */}
 
