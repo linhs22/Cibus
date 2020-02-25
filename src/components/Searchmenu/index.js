@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+// import image from "./egg.png"
 
 export default function Searchmenu(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);

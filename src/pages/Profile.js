@@ -56,27 +56,37 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export default function Profile(props) {
   const classes = useStyles();
-  const [myPosts, setMyPosts] = useState();
-  const [searchType, setSearchType] = useState("My Food");
+  const [result, setResults] = useState();
+  const [searchType, setSearchType] = useState("Followed Food");
   const [user, setUser] = useState(props.user);
 
   useEffect(() => {
       if(!user) {
           return;
       }
-      // if( searchType === "My Food" && user.id) {
-      //   console.log("UserId:v" + props.user.id);
-      //   API.getMyPosts(props.user.id)
-      //   .then(res => {
-      //       console.log(res);
-      //   })
-    // };
-    // if( searchType === "" ) {
-       
-    // };
+      if( searchType === "My Food" ) {
+        console.log("UserId:v" + props.user.id);
+        API.getMyPosts(props.user.id)
+        .then(res => {
+          console.log(res);
+          setResults(res);
+        })
+      };
+      if( searchType === "Followed Food" ) {
+        API.getMyFood(props.user.id)
+        .then(res => {
+          console.log(res);
+          setResults(res);
+        })
+      };
   }, [props.user.id]);
 
-  console.log(props.user)
+  const handleSearchType = event => {
+    console.log("Hidsd");
+    // setSearchType(event.target.getAttribute('value'));
+    // setResult();
+  };
+
   return (
     <div>
       <Header />
@@ -114,14 +124,21 @@ export default function Profile(props) {
           <Container className={classes.cardGrid} maxWidth="md">
             {/* End hero unit */}
             <Grid container spacing={4}>
-              {cards.map(card => (
-                <Grid item key={card} xs={12} sm={6} md={4}>
-                 
-{/* this is where the profile cards go */}
-<Newcard />
-                </Grid>
-              ))}
-            </Grid>
+                        {result?
+                        result.data.map( (card, index) => (
+                            <Grid item key={index} xs={12} sm={6} md={4}>
+                                <Card className={classes.card}>
+                                    {searchType === "Foodie"?
+                                    <Newcard user={card}/>
+                                    :
+                                    <Newcard post={card}/>
+                                    }
+                                </Card>
+                            </Grid>
+                        )) :
+                        "No results..."
+                        }
+                    </Grid>
           </Container>
         </main>
       </React.Fragment>

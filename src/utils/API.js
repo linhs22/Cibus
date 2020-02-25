@@ -7,7 +7,6 @@ const API = {
         return axios.get(`${URL}/api/posts/${userid}/${numberPosts}`);
     },
     getMyPosts: (userid)=>{
-        console.log(`${URL}/api/myposts/${userid}`)
         return axios.get(`${URL}/api/myposts/${userid}`);
     },
     getPostsHomepage: (userid, offset)=>{
@@ -31,6 +30,9 @@ const API = {
     },
     getSearchPosts: (search, numberPosts) => {
         return axios.get(`${URL}/searchpost/${search}/${numberPosts}`);
+    },
+    getMyFood: (userId) => {
+        return axios.get(`${URL}/api/bookmark/all/${userId}`);
     } 
     // login:(user)=>{
     //     return axios.post(`${URL}/api/auth/login`,user,{withCredentials:true})
