@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import image from "./egg.png"
 
 export default function Searchmenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -38,6 +39,7 @@ export default function Searchmenu() {
 <Button variant="contained" disabled>
   Food
 </Button>
+<img src={image} style={{margin:"5px" }} alt="Search" />
       </div>
     </div>
   );

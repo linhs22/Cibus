@@ -1,5 +1,4 @@
 
-import image from "./enter.png"
 import React from 'react'
 import Searchmenu from "../Searchmenu"
 
@@ -31,9 +30,8 @@ class Searchbar extends React.Component {
               value={this.props.search}
             />
             <Searchmenu />
-            <br />
+           
 
-            {/* <img src={image} style={{ border: ".5px solid lightgrey", borderRadius: "25%" }} alt="Search" /> */}
 
 
           </div>
