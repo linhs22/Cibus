@@ -27,12 +27,13 @@ function App() {
   });
 
   useEffect(() => {
-    API.userExist("javeyn")
+    API.userExist("mechea")
     .then(res => {
       setUser({
         name: res.data.firstname,
         username: res.data.username,
         profilePic: res.data.profilePic,
+        aboutMe: res.data.aboutMe,
         id: res.data.id
       })
     })
@@ -61,7 +62,9 @@ function App() {
           </Route>
           <Route exact path="/home" component={HomePage} />
           <Route exact path="/search" component={Search} />
-          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/profile">
+            <Profile user={user}></Profile>
+          </Route>
           <Route exact path="/post">
             <Post user={user}></Post>
           </Route>
