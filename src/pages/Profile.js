@@ -129,7 +129,7 @@ export default function Profile(props) {
                             <Grid item key={index} xs={12} sm={6} md={4}>
                                 <Card className={classes.card}>
                                     {searchType === "Foodie"?
-                                    <Newcard user={card}/>
+                                    <Newcard user={card} />
                                     :
                                     <Newcard post={card}/>
                                     }
