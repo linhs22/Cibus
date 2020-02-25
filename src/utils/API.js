@@ -6,7 +6,11 @@ const API = {
     getPosts: (userid, numberPosts)=>{
         return axios.get(`${URL}/api/posts/${userid}/${numberPosts}`);
     },
+    getMyPosts: (userid)=>{
+        return axios.get(`${URL}/api/myposts/${userid}`);
+    },
     getPostsHomepage: (userid, offset)=>{
+        console.log("Getting posts")
         return axios.get(`${URL}/api/followers/${userid}/${offset}`);
     },
     getUsers: (username, numberUsers)=>{
@@ -24,8 +28,11 @@ const API = {
     nutrition: (data) => {
         return axios.post(`${URL}/api/nutrition`, data);
     },
-    post: (data) => {
-        return axios.post(`${URL}/post/submit`, data);
+    getSearchPosts: (search, numberPosts) => {
+        return axios.get(`${URL}/searchpost/${search}/${numberPosts}`);
+    },
+    getMyFood: (userId) => {
+        return axios.get(`${URL}/api/bookmark/all/${userId}`);
     } 
     // login:(user)=>{
     //     return axios.post(`${URL}/api/auth/login`,user,{withCredentials:true})

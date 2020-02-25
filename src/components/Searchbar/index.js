@@ -23,10 +23,6 @@ class Searchbar extends React.Component {
             <img src={image} style={{margin:"5px", width:"200px", height:"auto" }} alt="Search" />
             <h3>Search</h3>
             <br />
-            <br/>
-            
-          
-
             <input
               type="text"
               ref="search"
@@ -34,16 +30,11 @@ class Searchbar extends React.Component {
               onChange={this.props.handleInputChange}
               value={this.props.search}
             />
-            <Searchmenu />
-           
+            <Searchmenu searchType={this.props.searchType} handleSearchType={this.props.handleSearchType}/>
 
 
 
           </div>
-          <br />
-          <br />
-          <br />
-
         </form>
       </div>
     )
