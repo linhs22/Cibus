@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Nutrilabel from "../Nutrilabel";
 import Expand from "../Expand";
+import Fade from "react-reveal/Fade";
 
 
 const styles = {
@@ -17,11 +18,11 @@ class PostCard extends Component {
         <header >
           <div className="Post-user">
             <div className="Post-user-avatar">
-              <img src={this.props.posts? this.props.posts.User.profilePic : ""} alt="Chris" />
+              {/* <img src={this.props.posts? this.props.posts.User.profilePic : ""} alt="Chris" /> */}
               {/* "https://qph.fs.quoracdn.net/main-qimg-134e3bf89fff27bf56bdbd04e7dbaedf.webp" */}
             </div>
             <div className="Post-user-nickname">
-              <span>{this.props.posts? this.props.posts.User.username : ""}</span>
+              {/* <span>{this.props.posts? this.props.posts.User.username : ""}</span> */}
             </div>
           </div>
         </header>
@@ -37,11 +38,20 @@ class PostCard extends Component {
 
         </div>
 
-          <div>
+     
         <Expand/>
            {/* {whatever.comments} */}
+          {/* <div>
 
-          </div>
+           {this.props.posts? 
+           this.props.posts.Comments.map( (item, index) => {
+             <Fade>
+               <p>{item}</p>
+             </Fade>
+           })
+            : 
+            ""}
+          </div> */}
       </article>;  
     }
 }

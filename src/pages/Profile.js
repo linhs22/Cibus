@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'
 // import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 // import CameraIcon from '@material-ui/icons/PhotoCamera';
@@ -17,6 +17,7 @@ import Header from "../components/Header"
 import Newcard from "../components/Newcard"
 import "../components/Post/Style.css";
 import profpic from "./morgan.jpg"
+import API from "../utils/API";
 
 
 const useStyles = makeStyles(theme => ({
@@ -53,8 +54,38 @@ const useStyles = makeStyles(theme => ({
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-export default function Profile() {
+export default function Profile(props) {
   const classes = useStyles();
+  const [result, setResults] = useState();
+  const [searchType, setSearchType] = useState("Followed Food");
+  const [user, setUser] = useState(props.user);
+
+  useEffect(() => {
+      if(!user) {
+          return;
+      }
+      if( searchType === "My Food" ) {
+        console.log("UserId:v" + props.user.id);
+        API.getMyPosts(props.user.id)
+        .then(res => {
+          console.log(res);
+          setResults(res);
+        })
+      };
+      if( searchType === "Followed Food" ) {
+        API.getMyFood(props.user.id)
+        .then(res => {
+          console.log(res);
+          setResults(res);
+        })
+      };
+  }, [props.user.id]);
+
+  const handleSearchType = event => {
+    console.log("Hidsd");
+    // setSearchType(event.target.getAttribute('value'));
+    // setResult();
+  };
 
   return (
     <div>
@@ -68,13 +99,11 @@ export default function Profile() {
               <br />
               <br />
               <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                Morgan FRICKIN' Freeman
-                {/* {whatever.username} */}
+                {props.user.username}
             </Typography>
               <Typography align="center" color="textSecondary">
-                <img src={profpic} style={{width:"150px", height:"auto", align:"center"}} />
-                <p>Brief User Description</p>
-                {/* {whatever.profilepic} */}
+                <img src={props.user.profilePic} style={{width:"300px", height:"auto", align:"center"}} />
+                <p>{props.user.aboutMe}</p>
             </Typography>
               <div className={classes.heroButtons}>
                 <Grid container spacing={2} justify="center">
@@ -95,14 +124,21 @@ export default function Profile() {
           <Container className={classes.cardGrid} maxWidth="md">
             {/* End hero unit */}
             <Grid container spacing={4}>
-              {cards.map(card => (
-                <Grid item key={card} xs={12} sm={6} md={4}>
-                 
-{/* this is where the profile cards go */}
-<Newcard />
-                </Grid>
-              ))}
-            </Grid>
+                        {result?
+                        result.data.map( (card, index) => (
+                            <Grid item key={index} xs={12} sm={6} md={4}>
+                                <Card className={classes.card}>
+                                    {searchType === "Foodie"?
+                                    <Newcard user={card}/>
+                                    :
+                                    <Newcard post={card}/>
+                                    }
+                                </Card>
+                            </Grid>
+                        )) :
+                        "No results..."
+                        }
+                    </Grid>
           </Container>
         </main>
       </React.Fragment>
