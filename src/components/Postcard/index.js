@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Nutrilabel from "../Nutrilabel";
+import Expand from "../Expand";
 
 
 const styles = {
@@ -37,7 +38,7 @@ class PostCard extends Component {
         </div>
 
           <div>
-        
+        <Expand/>
            {/* {whatever.comments} */}
 
           </div>
