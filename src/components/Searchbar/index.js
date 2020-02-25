@@ -1,6 +1,7 @@
 
 import React from 'react'
 import Searchmenu from "../Searchmenu"
+import image from "./egg.png"
 
 class Searchbar extends React.Component {
   render() {
@@ -18,14 +19,18 @@ class Searchbar extends React.Component {
             width: "50%",
             display: "inline-block"
           }}>
+            <br/>
+            <img src={image} style={{margin:"5px", width:"200px", height:"auto" }} alt="Search" />
             <h3>Search</h3>
             <br />
+            <br/>
+            
           
 
             <input
               type="text"
               ref="search"
-              placeholder="Tacos, Jacob, etc"
+              placeholder="Search for..."
               onChange={this.props.handleInputChange}
               value={this.props.search}
             />

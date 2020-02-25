@@ -11,7 +11,7 @@ class Header extends React.Component{
              <div id="navColDiv" style={{float: "left", width: "90%"}}><a href="Login"class="navButton"><img src={login} style={{float:"right", margin:"20px"}} alt="home icon"/> </a></div>
              <br />
            </nav>
-       );
+       )
     }   
 }
 export default Header;
