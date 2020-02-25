@@ -13,8 +13,9 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
-import Searchbar from "../components/Searchbar"
-import Searchcard from "../components/Searchcard"
+import Searchbar from "../components/Searchbar";
+import Searchcard from "../components/Searchcard";
+import Searchcardfood from "../components/Searchcardfood";
 import API from "../utils/API";
 
 
@@ -67,6 +68,8 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export default function Album(props) {
     const [search, setSearch] = useState("");
+    const [result, setResult] = useState();
+    const [searchType, setSearchType] = useState("Food");
     const classes = useStyles();
     const numberOfUsersToSearch = 20;
 
@@ -74,21 +77,28 @@ export default function Album(props) {
         if(!search) {
             return;
         }
-        API.getUsers(search, numberOfUsersToSearch)
-        .then(res => {
-            console.log(res);
-        })
-    })
+        if( searchType === "Foodie" ) {
+            API.getUsers(search, numberOfUsersToSearch)
+            .then(res => {
+                setResult(res);
+            })
+        };
+        if( searchType === "Food" ) {
+            API.getSearchPosts(search, 10)
+            .then(res => {
+                console.log(res);
+            })
+        };
+    }, [search]);
+
     const handleInputChange = event => {
         setSearch(event.target.value);
-        console.log(search)
     };
 
     return (
         <React.Fragment>
             <CssBaseline />
             <AppBar position="relative">
-
             </AppBar>
             <main>
                 {/* Hero unit */}
@@ -100,14 +110,20 @@ export default function Album(props) {
                 <Container className={classes.cardGrid} maxWidth="md">
                     {/* End hero unit */}
                     <Grid container spacing={4}>
-                        {cards.map(card => (
-                            <Grid item key={card} xs={12} sm={6} md={4}>
+                        {result?
+                        result.data.map( (card, index) => (
+                            <Grid item key={index} xs={12} sm={6} md={4}>
                                 <Card className={classes.card}>
-                                    
-                                    <Searchcard />
+                                    {searchType === "Foodie"?
+                                    <Searchcard user={card}/>
+                                    :
+                                    <Searchcardfood user={card}/>
+                                    }
                                 </Card>
                             </Grid>
-                        ))}
+                        )) :
+                        ""
+                        }
                     </Grid>
                 </Container>
             </main>

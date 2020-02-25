@@ -25,7 +25,7 @@ export default function Searchcard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={props.user.profilePic}
+          image={props.user.image}
           title={`Image of ${props.user.username}`}
         />
         <CardContent>

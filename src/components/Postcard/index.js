@@ -34,9 +34,7 @@ class PostCard extends Component {
         </div>
 
           <div>
-        
            {/* {whatever.comments} */}
-
           </div>
       </article>;  
     }

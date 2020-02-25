@@ -21,8 +21,6 @@ class Searchbar extends React.Component {
           }}>
             <h3>Search</h3>
             <br />
-          
-
             <input
               type="text"
               ref="search"
@@ -37,10 +35,6 @@ class Searchbar extends React.Component {
 
 
           </div>
-          <br />
-          <br />
-          <br />
-
         </form>
       </div>
     )

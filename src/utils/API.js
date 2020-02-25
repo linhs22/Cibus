@@ -24,8 +24,8 @@ const API = {
     nutrition: (data) => {
         return axios.post(`${URL}/api/nutrition`, data);
     },
-    post: (data) => {
-        return axios.post(`${URL}/post/submit`, data);
+    getSearchPosts: (search, numberPosts) => {
+        return axios.get(`${URL}/searchpost/${search}/${numberPosts}`);
     } 
     // login:(user)=>{
     //     return axios.post(`${URL}/api/auth/login`,user,{withCredentials:true})
