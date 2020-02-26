@@ -1,5 +1,9 @@
 import axios from "axios";
+<<<<<<< HEAD
 //const URL = "http://localhost:8090"
+=======
+// const URL = "http://localhost:8090"
+>>>>>>> development
 const URL = "https://foodie-cibus-2020.appspot.com"
 
 const API = {

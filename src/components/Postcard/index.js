@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Nutrilabel from "../Nutrilabel";
+import Expand from "../Expand";
 import Fade from "react-reveal/Fade";
+
 
 const styles = {
   imageStyle: {
@@ -36,6 +38,9 @@ class PostCard extends Component {
 
         </div>
 
+     
+        <Expand/>
+           {/* {whatever.comments} */}
           {/* <div>
 
            {this.props.posts? 
