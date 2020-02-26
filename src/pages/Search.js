@@ -81,16 +81,26 @@ export default function Album(props) {
       });
 
     useEffect(() => {
-        API.userExist("mechea")
-        .then(res => {
-          setUser({
-            name: res.data.firstname,
-            username: res.data.username,
-            profilePic: res.data.profilePic,
-            aboutMe: res.data.aboutMe,
-            id: res.data.id
+        API.isAuthenticated().then(res => {
+            console.log('Yau')
+            console.log(res.data.name);
+            setUser({
+                username: res.data.username,
+                profilePic: res.data.profilePic,
+                aboutMe: res.data.aboutMe,
+                id: res.data.id
+              })
           })
-        })
+        // API.userExist("mechea")
+        // .then(res => {
+        //   setUser({
+        //     name: res.data.firstname,
+        //     username: res.data.username,
+        //     profilePic: res.data.profilePic,
+        //     aboutMe: res.data.aboutMe,
+        //     id: res.data.id
+        //   })
+        // })
       }, []);
 
     useEffect(() => {

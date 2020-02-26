@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react'
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -13,6 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import taco from "./taco.png"
+import API from "../utils/API";
+import { withRouter } from "react-router-dom";
 // import Signup from "./pages/Signup";
 
 function Copyright() {
@@ -48,9 +50,42 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Login() {
+export default function Login(props) {
   const classes = useStyles();
-
+  const [login, setLogin] = useState({
+      name: "",
+      password: ""
+  })
+  const handleInputChange = event => {
+      const { name, value } = event.target;
+      setLogin({
+          ...login,
+          [name]: value
+      })
+  }
+  const handleFormSubmit = event => {
+      event.preventDefault();
+      API.login(login).then(res=>{
+          console.log(res.data)
+          props.history.push("/");
+          // API.isAuthenticated().then(data => {
+          //   console.log(data);
+          // }).catch(err=>{
+          //   console.log('No bueno')
+          // })
+      })
+      .catch(err=>{
+        console.log(err.data)
+          console.log(err);
+      })
+  }
+  const isAuthButton = event => {
+      API.isAuthenticated().then(res => {
+          console.log(res.data)
+      }).catch(err => {
+          console.log("error occured", err)
+      })
+  }
   return (
    
     
@@ -67,7 +102,7 @@ export default function Login() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleFormSubmit}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -78,6 +113,9 @@ export default function Login() {
             name="email"
             autoComplete="email"
             autoFocus
+            value={login.name}
+            onChange={handleInputChange}
+            name="name"
           />
           <TextField
             variant="outlined"
@@ -89,6 +127,9 @@ export default function Login() {
             type="password"
             id="password"
             autoComplete="current-password"
+            value={login.password}
+            onChange={handleInputChange}
+            name="password"
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}

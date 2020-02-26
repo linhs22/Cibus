@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react'
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -13,6 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import taco from "./taco.png"
+import { withRouter } from "react-router-dom";
+import API from "../utils/API";
 
 function Copyright() {
   return (
@@ -47,8 +49,60 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Signup() {
+export default function Signup(props) {
   const classes = useStyles();
+  const [login, setLogin] = useState({
+      firstname: "",
+      lastname: "",
+      email: "",
+      username: "",
+      password: "",
+      selectedFile: ""
+
+  })
+  const handleInputChange = event => {
+      const { name, value } = event.target;
+      setLogin({
+          ...login,
+          [name]: value
+      })
+  }
+  const handleFormSubmit = event => {
+      event.preventDefault();
+      const data = new FormData();
+      data.append('image', login.selectedFile);
+      API.signup(data)
+        .then(res => {
+          // this.setState({
+          //   concepts: res.data.concepts,
+          //   imageUrl: res.data.imageUrl,
+          //   postId: res.data.postId,
+          //   show: false
+          // });
+        })
+        .catch(err => console.log(err));
+      // API.login(login).then(res=>{
+      //     console.log(res.data)
+      //     props.history.push("/");
+      //     // API.isAuthenticated().then(data => {
+      //     //   console.log(data);
+      //     // }).catch(err=>{
+      //     //   console.log('No bueno')
+      //     // })
+      // })
+      // .catch(err=>{
+      //   console.log(err.data)
+      //     console.log(err);
+      // })
+  }
+
+  const onChangeHandler = async (event) => {
+    event.preventDefault();
+    await setLogin({
+      selectedFile: event.target.files[0],
+      loadFile: URL.createObjectURL(event.target.files[0])
+    });
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -63,7 +117,7 @@ export default function Signup() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleFormSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -75,6 +129,9 @@ export default function Signup() {
                 id="firstName"
                 label="First Name"
                 autoFocus
+                value={login.firstname}
+              onChange={handleInputChange}
+              name="firstname"
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -86,6 +143,9 @@ export default function Signup() {
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
+                value={login.lastname}
+              onChange={handleInputChange}
+              name="lastname"
               />
             </Grid>
             <Grid item xs={12}>
@@ -97,6 +157,9 @@ export default function Signup() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                value={login.email}
+              onChange={handleInputChange}
+              name="email"
               />
             </Grid>
             <Grid item xs={12}>
@@ -108,6 +171,9 @@ export default function Signup() {
                 label="Username"
                 name="username"
                 autoComplete="username"
+                value={login.username}
+                onChange={handleInputChange}
+                name="username"
               />
             </Grid>
             <Grid item xs={12}>
@@ -120,6 +186,9 @@ export default function Signup() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={login.password}
+                onChange={handleInputChange}
+                name="password"
               />
             </Grid>
             <Grid item xs={12}>
@@ -129,6 +198,11 @@ export default function Signup() {
               />
             </Grid>
           </Grid>
+          <div className="form-group files color">
+            <label>Upload Your Image</label>
+            <input type="file" className="form-control hidden" name="file" onChange={onChangeHandler}></input>
+            
+          </div>
           <Button
             type="submit"
             fullWidth

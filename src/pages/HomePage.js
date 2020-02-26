@@ -16,16 +16,41 @@ import debounce from "lodash.debounce";
      numOfPostToGet: 2,
      offset: 0,
      userProps: false,
-     user:{}
+     user:{},
+     username: ""
    };
 
    componentDidMount() {
-     API.userExist("mechea").then(data=>{
-       console.log(data.data);
+     API.isAuthenticated().then(data => {
+       console.log('Yau')
+       console.log(data.data.name);
        this.setState({
-         user:data.data
-       })
+        user: data.data
+      })
      })
+    //  .then(res => {
+    //     console.log(this.state.username);
+    //    API.userExist(this.state.username).then(data=>{
+    //     this.setState({
+    //       user:data.data
+    //     })
+    //     console.log("user exist")
+    //     console.log(this.state.user);
+    //  });
+    // }) 
+    .then(res => {
+      console.log("Here")
+      console.log(this.state.user)
+      if(this.state.user && !this.state.userProps)
+      {
+        this.getUsers(); 
+        this.setState({userProps: true});
+      } 
+    }) 
+     .catch(err=>{
+       console.log('No bueno')
+     })
+
     window.addEventListener('scroll', this.handleScrollEvent);
   };
 
@@ -34,11 +59,7 @@ import debounce from "lodash.debounce";
   }
 
   componentDidUpdate() {
-    if(this.state.user && !this.state.userProps)
-    {
-      this.getUsers(); 
-      this.setState({userProps: true});
-    }   
+  
   }
     
 
