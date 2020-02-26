@@ -34,11 +34,6 @@ const API = {
         return axios.post(`${URL}/post/submit`, data);
     },  
     getMyFood: (userId) => {
-<<<<<<< HEAD
-        return axios.get(`${URL}/api/bookmarkall/${userId}`);
-    }
-    
-=======
         return axios.get(`${URL}/api/bookmark/all/${userId}`);
     }, 
     followUser: (follower, following) => {
@@ -46,7 +41,6 @@ const API = {
         // return console.log("yo")
     }
 
->>>>>>> development
     // login:(user)=>{
     //     return axios.post(`${URL}/api/auth/login`,user,{withCredentials:true})
     // },
