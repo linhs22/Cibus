@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     },
   }));
   
-  export default function Expand() {
+  export default function Expand(props) {
     const classes = useStyles();
   
     return (
@@ -28,12 +28,14 @@ const useStyles = makeStyles(theme => ({
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography className={classes.heading}>Expand</Typography>
+            <Typography className={classes.heading}>Comments</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
-              <Comment/>
-              <Comment/>
+            {props.comments? 
+            props.comments.map( (item, index) => <p><strong>{item.User.username}&nbsp;</strong>{item.comment}</p>)
+              : 
+              ""}
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>

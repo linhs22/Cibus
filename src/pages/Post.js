@@ -71,7 +71,6 @@ class Post extends React.Component {
     data.append('image', this.state.selectedFile);
     API.uploadPost(data)
       .then(res => {
-        console.log(res.data);
         this.setState({
           concepts: res.data.concepts,
           imageUrl: res.data.imageUrl,
@@ -143,7 +142,7 @@ class Post extends React.Component {
 
   handleClickSubmitPost = () => {
     var postData = {
-      UserId: this.props.user.id,
+      userId: this.props.user.id,
       ingredients: this.state.concepts.filter(item => item.amount > 0),
       postId: this.state.postId,
       nutrition: this.state.nutrition,
@@ -154,6 +153,7 @@ class Post extends React.Component {
     console.log(postData)
     API.post(postData)
       .then(res => {
+        console.log(postData);
         console.log("done");
         this.props.history.push("/");
       })
