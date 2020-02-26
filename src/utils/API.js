@@ -3,25 +3,25 @@ const URL = "http://localhost:8090"
 //const URL = "https://foodie-cibus-2020.appspot.com"
 
 const API = {
-    getPosts: (userid, numberPosts)=>{
+    getPosts: (userid, numberPosts) => {
         return axios.get(`${URL}/api/posts/${userid}/${numberPosts}`);
     },
-    getMyPosts: (userid)=>{
+    getMyPosts: (userid) => {
         return axios.get(`${URL}/api/myposts/${userid}`);
     },
-    getPostsHomepage: (userid, offset)=>{
+    getPostsHomepage: (userid, offset) => {
         return axios.get(`${URL}/api/followers/${userid}/${offset}`);
     },
-    getUsers: (username, numberUsers)=>{
+    getUsers: (username, numberUsers) => {
         return axios.get(`${URL}/api/users/${username}/${numberUsers}`);
     },
-    uploadPost: (data)=>{
+    uploadPost: (data) => {
         return axios.post(`${URL}/post/upload`, data); //{headers: {'Content-Type': 'multipart/form-data'}}
     },
-    userExist:(username) => {
+    userExist: (username) => {
         return axios.get(`${URL}/api/auth/${username}`);
     },
-    signup:(user) => {
+    signup: (user) => {
         return axios.post(`${URL}/api/auth/signup`, user);
     },
     nutrition: (data) => {
@@ -32,21 +32,20 @@ const API = {
     },
     post: (data) => {
         return axios.post(`${URL}/post/submit`, data);
-    },  
+    },
     getMyFood: (userId) => {
         return axios.get(`${URL}/api/bookmark/all/${userId}`);
-    }, 
+    },
     followUser: (follower, following) => {
         return axios.post(`${URL}/api/followers/save/${follower}/${following}`)
         // return console.log("yo")
+    },
+    login: (user) => {
+        return axios.post(`${URL}/api/auth/login`, user, { withCredentials: true })
+    },
+    isAuthenticated: () => {
+        return axios.get(`${URL}/api/loggedinuser`, { withCredentials: true });
     }
-
-    // login:(user)=>{
-    //     return axios.post(`${URL}/api/auth/login`,user,{withCredentials:true})
-    // },
-    // isAuthenticated:()=>{
-    //     return axios.get(`${URL}/api/auth/loggedinuser`,{withCredentials:true});
-    // }
 }
 
 export default API
