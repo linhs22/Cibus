@@ -33,7 +33,12 @@ const API = {
     },
     getMyFood: (userId) => {
         return axios.get(`${URL}/api/bookmark/all/${userId}`);
-    } 
+    }, 
+    followUser: (follower, following) => {
+        return axios.post(`${URL}/api/followers/save/${follower}/${following}`)
+        // return console.log("yo")
+    }
+
     // login:(user)=>{
     //     return axios.post(`${URL}/api/auth/login`,user,{withCredentials:true})
     // },
