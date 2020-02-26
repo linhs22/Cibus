@@ -70,6 +70,28 @@ export default function Album(props) {
     const [searchType, setSearchType] = useState("Foodie");
     const classes = useStyles();
     const numberOfUsersToSearch = 20;
+    
+    // To be removed
+    const [user, setUser] = useState({
+        name: '',
+        username: '',
+        profilePic: '',
+        id: 0,
+        isAuthenticated: true
+      });
+
+    useEffect(() => {
+        API.userExist("mechea")
+        .then(res => {
+          setUser({
+            name: res.data.firstname,
+            username: res.data.username,
+            profilePic: res.data.profilePic,
+            aboutMe: res.data.aboutMe,
+            id: res.data.id
+          })
+        })
+      }, []);
 
     useEffect(() => {
         if(!search) {

@@ -155,7 +155,7 @@ class Post extends React.Component {
     API.uploadPost(postData)
       .then(res => {
         console.log("done");
-        this.props.history.push("/");
+        //this.props.history.push("/");
       })
       .catch(err => console.log(err));
   }

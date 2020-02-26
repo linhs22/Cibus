@@ -1,10 +1,6 @@
 import axios from "axios";
-<<<<<<< HEAD
-//const URL = "http://localhost:8090"
-=======
-// const URL = "http://localhost:8090"
->>>>>>> development
-const URL = "https://foodie-cibus-2020.appspot.com"
+const URL = "http://localhost:8090"
+//const URL = "https://foodie-cibus-2020.appspot.com"
 
 const API = {
     getPosts: (userid, numberPosts)=>{
@@ -14,7 +10,6 @@ const API = {
         return axios.get(`${URL}/api/myposts/${userid}`);
     },
     getPostsHomepage: (userid, offset)=>{
-        console.log("Getting posts")
         return axios.get(`${URL}/api/followers/${userid}/${offset}`);
     },
     getUsers: (username, numberUsers)=>{
