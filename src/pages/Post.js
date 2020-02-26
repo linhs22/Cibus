@@ -151,7 +151,7 @@ class Post extends React.Component {
       location: this.state.location
     };
     console.log(postData)
-    API.post(postData)
+    API.uploadPost(postData)
       .then(res => {
         console.log("done");
         this.props.history.push("/");

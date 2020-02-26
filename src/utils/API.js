@@ -1,6 +1,6 @@
 import axios from "axios";
-const URL = "http://localhost:8090"
-// const URL = "https://joesreactzoo-api.herokuapp.com"
+//const URL = "http://localhost:8090"
+const URL = "https://foodie-cibus-2020.appspot.com"
 
 const API = {
     getPosts: (userid, numberPosts)=>{

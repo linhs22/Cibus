@@ -14,7 +14,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Header from "../components/Header"
-import Newcard from "../components/Newcard"
+import NewcardMyFood from "../components/NewcardMyFood";
+import NewcardFollFood from "../components/NewcardFollFood";
 import "../components/Post/Style.css";
 import profpic from "./morgan.jpg"
 import API from "../utils/API";
@@ -52,12 +53,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
 export default function Profile(props) {
   const classes = useStyles();
   const [result, setResults] = useState();
-  const [searchType, setSearchType] = useState("Followed Food");
+  const [searchType, setSearchType] = useState("My Food");
   const [user, setUser] = useState(props.user);
 
   useEffect(() => {
@@ -128,10 +127,10 @@ export default function Profile(props) {
                         result.data.map( (card, index) => (
                             <Grid item key={index} xs={12} sm={6} md={4}>
                                 <Card className={classes.card}>
-                                    {searchType === "Foodie"?
-                                    <Newcard user={card} />
+                                    {searchType === "My Food"?
+                                    <NewcardMyFood post={card} />
                                     :
-                                    <Newcard post={card}/>
+                                    <NewcardFollFood post={card}/>
                                     }
                                 </Card>
                             </Grid>
