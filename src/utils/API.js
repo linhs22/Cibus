@@ -30,9 +30,13 @@ const API = {
     getSearchPosts: (search, numberPosts) => {
         return axios.get(`${URL}/searchpost/${search}/${numberPosts}`);
     },
+    post: (data) => {
+        return axios.post(`${URL}/post/submit`, data);
+    },  
     getMyFood: (userId) => {
-        return axios.get(`${URL}/api/bookmark/all/${userId}`);
-    } 
+        return axios.get(`${URL}/api/bookmarkall/${userId}`);
+    }
+    
     // login:(user)=>{
     //     return axios.post(`${URL}/api/auth/login`,user,{withCredentials:true})
     // },

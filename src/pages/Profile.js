@@ -72,17 +72,18 @@ export default function Profile(props) {
         })
       };
       if( searchType === "Followed Food" ) {
+        console.log("Followed Food")
         API.getMyFood(props.user.id)
         .then(res => {
           console.log(res);
           setResults(res);
         })
       };
-  }, [props.user.id]);
+  }, [props.user.id, searchType]);
 
   const handleSearchType = event => {
     console.log("Hidsd");
-    // setSearchType(event.target.getAttribute('value'));
+    setSearchType(event.target.getAttribute('value'));
     // setResult();
   };
 
@@ -107,14 +108,20 @@ export default function Profile(props) {
               <div className={classes.heroButtons}>
                 <Grid container spacing={2} justify="center">
                   <Grid item>
-                    <Button variant="contained" color="primary">
+                    <Button variant="contained" color={searchType === "My Food"? "primary" : ""}>
+                      <div value="My Food" onClick={handleSearchType}>My Food</div>
+                    </Button>
+                    {/* <Button variant="contained" color="primary">
                       My Food
-                  </Button>
+                  </Button> */}
                   </Grid>
                   <Grid item>
-                    <Button variant="outlined" color="primary">
+                    <Button variant="contained" color={searchType === "Followed Food"? "primary" : ""}>
+                      <div value="Followed Food" onClick={handleSearchType}>Followed Food</div>
+                    </Button>
+                    {/* <Button variant="outlined" color="primary">
                       Followed Food
-                  </Button>
+                  </Button> */}
                   </Grid>
                 </Grid>
               </div>
@@ -127,11 +134,7 @@ export default function Profile(props) {
                         result.data.map( (card, index) => (
                             <Grid item key={index} xs={12} sm={6} md={4}>
                                 <Card className={classes.card}>
-                                    {searchType === "My Food"?
                                     <NewcardMyFood post={card} />
-                                    :
-                                    <NewcardFollFood post={card}/>
-                                    }
                                 </Card>
                             </Grid>
                         )) :
