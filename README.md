@@ -26,13 +26,13 @@ Nutritionix API
 
 Ate-i Engine 
 
-React/Express/MySql/Heroku/Mlab/image service Socket.io
+React/Express/MySql/Heroku/Mlab/image
 
 ### Feedback
-I really enjoyed this project because blah blah blah
- **Name your variables as clearly as possible**.
+I really enjoyed this project because it was a culmination of everything that we learned during our 3 month full stack webdevelopment course. We definitely were too ambitious and trying to create a social media application. There were many aspects of our site that we were no able to complete (create user, commenting, nutrition facts). However, the core of the application will work if you use mechea as the username and coolstuff as the password. While I do not plan to continue this project, I may recreate something that is smaller in scale.
 ### Thoughts
-First, I need to thank blah blah blah
+First, I need to thank Joe Rehfuss, Clint Brodar, Denis Malloy and the UW Coding Bootcamp for all their help in instructing and guiding us through the project. 
+
 I'd also like to thank W3 schools for their plethora of useful, albeit sometimes vague information
 https://www.w3schools.com/ 
 
