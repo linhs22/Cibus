@@ -13,7 +13,6 @@
 ### Description
 Social networking has taken a turn for the worse as of late, and we aim to change that with Cibus. Cibus is a social networking app aimed at bringing people together using one of the oldest and truest methods: a good meal.
 
-![image of Note Taker](public/assets/css/images/notetaker2.png)
 Open Cibus with your phone, and create an account. From there you can take images of food you have eaten or seen and share with others. Discuss what you liked about it, tag it so others can search for it in their culinary adventures, and follow delicious meals posted by others. 
 
 Cibus is open and flexible enough that the casual user can post pictures on the go, and robust enough to allow restaurants and food bloggers to showcase food and recipes on their pages. 
